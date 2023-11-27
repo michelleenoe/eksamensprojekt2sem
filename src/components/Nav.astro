@@ -1,0 +1,55 @@
+<header>
+<div class="header">
+    <nav class="horizontal-navigation">
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">SHOP</a></li>
+            <li class="logo">
+                <img src="public/logo/firstclass-logo-svg/logo.svg" alt="Your Logo">
+            </li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">CART(0)</a></li>
+        </ul>
+    </nav>
+</div>
+</header>
+
+<style>
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+margin-bottom:30px;
+}
+
+
+.horizontal-navigation {
+    flex-grow: 1;
+}
+
+.horizontal-navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.horizontal-navigation li {
+    display: inline;
+}
+
+.horizontal-navigation li a {
+    text-decoration: none;
+    padding: 10px;
+    color: var(--primary-text);
+}
+
+.logo img {
+    width: 225px; 
+    display: block;
+}
+.logo {
+    margin-top: -1%;
+}
+</style>

@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "Neue Hass";
+    src: url("../../public/fonts/neue-haas-grotesk-display-pro-cufonfonts/NeueHaasDisplayMediu.ttf") format("truetype");
+    font-weight: 500; /* Medium */
+}
+
+@font-face {
+    font-family: "Neue Hass";
+    src: url("../../public/fonts/neue-haas-grotesk-display-pro-cufonfonts/NeueHaasDisplayRoman.ttf") format("truetype");
+    font-weight: 400; /* Roman */
+}
+
+@font-face {
+    font-family: "Neue Hass";
+    src: url("../../public/fonts/neue-haas-grotesk-display-pro-cufonfonts/NeueHaasDisplayLight.ttf") format("truetype");
+    font-weight: 300; /* Light */
+}
+
+main {
+    margin-bottom: 40px;
+}
+html {
+    scroll-behavior: smooth;
+  }
+
+  :root { 
+    --primary-text: #0D101D;
+    --secondary-color:white;
+    --cta-text:#7A1C44;
+    --font-family: "Neue Hass";
+    --content-padding: 20px; 
+    --header-margin-bottom: 20px;
+    --footer-margin-top: 20px;
+    --background-color:#F0EFEC;
+  }
+
+  body {
+    letter-spacing: 0.08px;
+    font-family: var(--font-family);
+    margin: 20px;
+    padding: 50px;
+    color: var(--primary-);
+    background-color: var(--background-color);
+  }

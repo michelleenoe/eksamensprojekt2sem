@@ -1,18 +1,25 @@
 ---
-
+import "../../public/css/general.css";
+import Nav from "../components/Nav.astro";
+import Minihero from "../components/Minihero.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Eksamensprojekt</title>
+		<title>First Class Second Hand</title>
+		<link rel="icon" type="image/x-icon" href="public/logo/firstclass-logo-svg/logo.svg">
 	</head>
 	<header>
+		<Nav />
 	</header>
 	<body>
-		<h1>Astro</h1>
-	</body>
+		<Minihero/>
+	<footer>
+		<Footer/>
+	</footer>
+</body>
 </html>
