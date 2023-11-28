@@ -19,6 +19,16 @@ html {
     scroll-behavior: smooth;
   }
 
+  *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+main{
+  width: 90vw;
+  max-width: 1000px;
+  margin-inline: auto;
+}
   :root { 
     --primary-text: #0D101D;
     --secondary-color:white;
@@ -28,6 +38,7 @@ html {
     --header-margin-bottom: 20px;
     --footer-margin-top: 20px;
     --background-color:#F0EFEC;
+
   }
 
   body {
@@ -37,6 +48,4 @@ html {
     margin: 0;
     padding: 0;   
     line-height: 1.6;
-
-
   }
