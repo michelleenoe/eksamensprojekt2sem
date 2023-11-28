@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="da">
+  <style>
+
+
+    footer {
+      background-color: var(--primary-text);
+      color: white;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 20px;
+      position: absolute;
+      bottom: -50%;
+      width: 100%;
+      margin-top:50px;
+    }
+
+    footer ul {
+      list-style: none;
+ 
+
+    }
+
+    footer li {
+      margin-bottom: 5px;
+    }
+
+    form label {
+      display: none;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 0;
+      background-color: transparent;
+      border-bottom: 2px solid #fff;
+      color: white;
+      outline: none;
+    }
+    form button {
+      background-color: var(--secondary-text);
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+
+
+    @media screen and (max-width: 600px) {
+      footer {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <body>
+    <footer>
+      <div class="logo">
+        <img
+          src="../../public/logo/firstclass-logo-svg/firstclass-logo-white_1.png"
+          width="200"
+          height="200"
+          alt="First Class Second Hand logo"
+        />
+      </div>
+      <div>
+        <ul>
+          <h3>Følg os</h3>
+          <p>Instagram</p>
+          <p>Facebook</p>
+          <p>TikTok</p>
+        </ul>
+      </div>
+      <div>
+        <h3>Åbningstider</h3>
+        <p>Tirsdag - Fredag 10 - 17.30</p>
+        <p>Lørdag 10 - 14</p>
+      </div>
+      <div class="contact">
+        <h3>Kontakt os</h3>
+        <p>TLF +45 38 34 94 85</p>
+        <p>Godthåbsvej 57, 2000 Frederiksberg</p>
+      </div>
+      <form>
+        <h3>Send en mail</h3>
+        <label for="email">mail</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="MAIL"
+          required
+        />
+
+        <label for="name">Navn</label>
+        <input type="text" id="name" name="name" placeholder="NAVN" required />
+
+        <label for="message">Besked</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          placeholder="BESKED"
+          required></textarea>
+
+        <button type="submit">SEND</button>
+      </form>
+    </footer>
+  </body>
+</html>
