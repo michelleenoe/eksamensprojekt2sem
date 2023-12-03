@@ -1,59 +1,68 @@
 <header>
-<div class="header">
+  <div class="header">
     <nav class="horizontal-navigation">
-        <ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="src/pages/products.astro">SHOP</a></li>
-            <li class="logo">
-                <img src="src/logo/firstclass-logo-svg/logo.svg" alt="First Class Second Hand">
-            </li>
-            <li><a href="#">ABOUT</a></li>
-            <li><a href="#">CART(0)</a></li>
-        </ul>
+      <ul>
+        <li><a href="/index">HOME</a></li>
+        <li><a href="/about">ABOUT</a></li>
+
+        <li class="logo">
+          <img
+            src="src/logo/firstclass-logo-svg/logo.svg"
+            alt="First Class Second Hand"
+          />
+        </li>
+        <li class="cta-button"><a href="/listeview">SHOP</a></li>
+        <li><a href="/">CART(0)</a></li>
+      </ul>
     </nav>
-</div>
+  </div>
 </header>
 
 <style>
-.header {
+  .header {
     margin-top: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom:100px;
-}
+    margin-bottom: 100px;
+  }
 
-
-.horizontal-navigation {
+  .horizontal-navigation {
     flex-grow: 1;
-    
-}
+  }
 
-.horizontal-navigation ul {
+  .horizontal-navigation ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: space-around;
-    
-}
+  }
 
-.horizontal-navigation li {
+  .horizontal-navigation li {
     display: inline;
+  }
 
-}
-
-.horizontal-navigation li a {
+  .horizontal-navigation li a {
     text-decoration: none;
     padding: 10px;
     color: var(--primary-text);
-}
+  }
 
-.logo img {
-    width: 225px; 
+  .logo img {
+    width: 225px;
     display: block;
-}
-.logo {
+  }
+  .logo {
     margin-top: -1%;
-}
+  }
+
+  .cta-button {
+    background-color: var(--cta-text);
+    box-sizing: border-box;
+  }
+
+  .cta-button a {
+    color: white !important;
+  }
 </style>
