@@ -1,0 +1,30 @@
+---
+const { data } = Astro.props;
+console.log(data);
+---
+
+<article class="grid-container">
+  <div class="grid-item">
+    <a href={`/products/${data.slug}`}>
+      <img class="image" src={data.image} alt="Produktskud" />
+    </a>
+    <a href={`/products/${data.slug}`}>
+      <h2>{data.title}</h2>
+    </a>
+    <p><strong>{data.price}DKK</strong></p>
+    <p><strong>{data.brand}</strong></p>
+  </div>
+</article>
+
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+  }
+</style>
