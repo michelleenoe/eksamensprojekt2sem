@@ -1,0 +1,31 @@
+---
+import Mainlayout from "../layouts/Mainlayout.astro";
+import "../css/general.css";
+import "../css/style.css";
+import Liste from "../components/Liste.astro";
+
+const data = await fetch(
+  "https://uiovvvgmjftrkbiogyqx.supabase.co/rest/v1/products",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVpb3Z2dmdtamZ0cmtiaW9neXF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDExMTU1MzUsImV4cCI6MjAxNjY5MTUzNX0.K1gnnZYV5aWSc4jzhiX1H2-WIcr2JXnmrj1BylbJRf0",
+    },
+  }
+).then((res) => res.json());
+
+console.log(data);
+---
+
+<Mainlayout title="Shop">
+  <section>
+    {
+      data.map((show) => {
+        return <Liste data={show} />;
+      })
+    }
+  </section>
+</Mainlayout>
+
+<style></style>
