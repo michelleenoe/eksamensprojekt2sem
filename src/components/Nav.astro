@@ -1,3 +1,25 @@
+</head>
+<body>
+
+<header>
+  <div class="header">
+    <nav class="horizontal-navigation">
+      <div class="burger-container">
+        <div class="burger-icon" onclick="toggleMenu()">&#9776;</div>
+        <div class="cross-icon" onclick="toggleMenu()">&#10006;</div>
+      </div>
+      <ul class="nav-list">
+        <li><a href="/index">HOME</a></li>
+        <li><a href="/about">ABOUT</a></li>
+        <li class="cta-button"><a href="/listeview">SHOP</a></li>
+        <li><a href="/">CART(0)</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+</body>
+</html>
 
   <style>
     .header {
@@ -21,6 +43,10 @@
       justify-content: space-around;
     }
 
+    .nav-list li a:hover {
+      color: var(--cta-text);
+    }
+
     .nav-list li a {
       text-decoration: none;
       padding: 10px;
@@ -37,12 +63,22 @@
     }
 
     .cta-button {
-      background-color: var(--cta-text);
+      background-color: var(--cta-text); 
+      padding: 8px 16px; 
       box-sizing: border-box;
+      display: inline-block;
+      text-decoration: none;
+      cursor: pointer; 
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: black;
     }
 
     .cta-button a {
       color: white !important;
+      text-decoration: none; 
     }
 
     @media only screen and (max-width: 768px) {
@@ -61,19 +97,19 @@
         display: flex;
       }
 
-      .burger-icon {
-        cursor: pointer;
+      .burger-icon,
+      .cross-icon {
+        display: block;
         font-size: 40px;
         position: absolute;
         right: 15px;
-        display: block;
+      }
+
+      .burger-icon:hover {
+        color: var(--cta-text);
       }
 
       .cross-icon {
-        cursor: pointer;
-        font-size: 40px;
-        position: absolute;
-        right: 15px;
         display: none;
       }
 
@@ -88,36 +124,22 @@
       .logo {
         display: none;
       }
+    }
 
-      .burger-icon:hover {
-        color: var(--cta-text);
+    @media only screen and (max-width: 768px) and (orientation: landscape) {
+      .burger-icon,
+      .cross-icon {
+        top: 15px;
+      }
+    }
+
+    @media only screen and (min-width: 769px) {
+      .burger-icon,
+      .cross-icon {
+        display: none;
       }
     }
   </style>
-</head>
-<body>
-  <header>
-    <div class="header">
-      <nav class="horizontal-navigation">
-        <div class="burger-container">
-          <div class="burger-icon" onclick="toggleMenu()">&#9776;</div>
-          <div class="cross-icon" onclick="toggleMenu()">&#10006;</div>
-        </div>
-        <ul class="nav-list">
-          <li><a href="/index">HOME</a></li>
-          <li><a href="/about">ABOUT</a></li>
-          <li class="logo">
-            <img
-              src="src/logo/firstclass-logo-svg/logo.svg"
-              alt="First Class Second Hand"
-            />
-          </li>
-          <li class="cta-button"><a href="/listeview">SHOP</a></li>
-          <li><a href="/">CART(0)</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const burgerContainer = document.querySelector(".burger-container");
@@ -127,17 +149,22 @@
   
       function toggleMenu() {
         const isOpen = navList.classList.toggle("show");
-        burgerIcon.style.display = isOpen ? "none" : "block";
-        crossIcon.style.display = isOpen ? "block" : "none";
+        if (burgerIcon) {
+          burgerIcon.style.display = isOpen ? "none" : "block";
+        }
+        if (crossIcon) {
+          crossIcon.style.display = isOpen ? "block" : "none";
+        }
         document.body.style.overflow = isOpen ? "hidden" : "auto";
       }
   
-      // Initially hide the cross icon
-      crossIcon.style.display = "none";
+      if (crossIcon) {
+        crossIcon.style.display = "none";
+      }
   
-      burgerContainer.addEventListener("click", toggleMenu);
+      if (burgerContainer) {
+        burgerContainer.addEventListener("click", toggleMenu);
+      }
     });
   </script>
-  
-</body>
-</html>
+
