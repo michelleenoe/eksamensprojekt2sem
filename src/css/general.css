@@ -84,6 +84,6 @@ p {
 
 }
 h3 {
-  font-family: var(--font-family-medium);
-  font-weight: 500;
+  font-family: var(--font-family-light);
+  font-size: 21px;
 }
