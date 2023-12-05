@@ -1,176 +1,178 @@
-</head>
-<body>
+<style>
+  .header {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 100px;
+  }
 
-<header>
-  <div class="header">
-    <nav class="horizontal-navigation">
-      <div class="burger-container">
-        <div class="burger-icon" onclick="toggleMenu()">&#9776;</div>
-        <div class="cross-icon" onclick="toggleMenu()">&#10006;</div>
-      </div>
-      <ul class="nav-list">
-        <li><a href="/index">HOME</a></li>
-        <li><a href="/about">ABOUT</a></li>
-        <li class="logo">
-          <img
-            src="src/logo/firstclass-logo-svg/logo.svg"
-            alt="First Class Second Hand"
-          />
-        </li>
-        <li class="cta-button"><a href="/listeview">SHOP</a></li>
-        <li><a href="/">CART(0)</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  .horizontal-navigation {
+    flex-grow: 1;
+    position: relative;
+  }
 
-</body>
-</html>
+  .nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 130px;
+    gap: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
 
-  <style>
-    .header {
-      margin-top: 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 100px;
-    }
+  .nav-list li a:hover {
+    color: var(--cta-text);
+  }
 
-    .horizontal-navigation {
-      flex-grow: 1;
-      position: relative;
-    }
+  .nav-list li a {
+    text-decoration: none;
+    padding: 0 10px;
+    color: var(--primary-text);
+  }
 
+  .logo img {
+    width: 225px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .logo {
+    flex: 1;
+  }
+
+  .cta-button {
+    color: white;
+    background: #7a1c44;
+    padding: 4px 15px 4px 15px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background: #9c1652;
+    text-decoration: none;
+  }
+
+  .cta-button a {
+    color: white !important;
+  }
+
+  @media only screen and (max-width: 768px) {
     .nav-list {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: space-around;
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 100%;
+      background-color: var(--background-color);
+      z-index: 1;
+      gap:20px;
     }
 
-    .nav-list li a:hover {
+    .nav-list.show {
+      display: flex;
+    }
+
+    .burger-icon,
+    .cross-icon {
+      display: block;
+      font-size: 40px;
+      position: absolute;
+      right: 15px;
+    }
+
+    .cross-icon {
+      font-size: 55px;
+      color:var(--cta-text);
+    }
+
+    .burger-icon:hover {
       color: var(--cta-text);
     }
-
-    .nav-list li a {
-      text-decoration: none;
-      padding: 10px;
-      color: var(--primary-text);
+    .cta-button, .cta-button:hover {
+      background: transparent;
+    }
+    .cta-button a {
+      color: var(--primary-text) !important;
+    }
+ 
+    .cross-icon {
+      display: none;
     }
 
-    .logo img {
-      width: 225px;
+    .burger-icon.show {
+      display: none;
+    }
+
+    .cross-icon.show {
       display: block;
     }
 
     .logo {
-      margin-top: -1%;
+      display: none;
     }
+  }
 
-    .cta-button {
-      background-color: var(--cta-text); 
-      padding: 8px 16px; 
-      box-sizing: border-box;
-      display: inline-block;
-      text-decoration: none;
-      cursor: pointer; 
-      transition: background-color 0.3s ease;
+  @media only screen and (min-width: 769px) {
+    .burger-icon,
+    .cross-icon {
+      display: none;
     }
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const burgerContainer = document.querySelector(".burger-container");
+    const navList = document.querySelector(".nav-list");
+    const burgerIcon = document.querySelector(".burger-icon");
+    const crossIcon = document.querySelector(".cross-icon");
 
-    .cta-button:hover {
-      background-color: black;
-    }
-
-    .cta-button a {
-      color: white !important;
-      text-decoration: none; 
-    }
-
-    @media only screen and (max-width: 768px) {
-      .nav-list {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 100%;
-        background-color: white;
-        z-index: 1;
+    function toggleMenu() {
+      const isOpen = navList.classList.toggle("show");
+      if (burgerIcon) {
+        burgerIcon.style.display = isOpen ? "none" : "block";
       }
-
-      .nav-list.show {
-        display: flex;
-      }
-
-      .burger-icon,
-      .cross-icon {
-        display: block;
-        font-size: 40px;
-        position: absolute;
-        right: 15px;
-      }
-
-      .burger-icon:hover {
-        color: var(--cta-text);
-      }
-
-      .cross-icon {
-        display: none;
-      }
-
-      .burger-icon.show {
-        display: none;
-      }
-
-      .cross-icon.show {
-        display: block;
-      }
-
-      .logo {
-        display: none;
-      }
-    }
-
-    @media only screen and (max-width: 768px) and (orientation: landscape) {
-      .burger-icon,
-      .cross-icon {
-        top: 15px;
-      }
-    }
-
-    @media only screen and (min-width: 769px) {
-      .burger-icon,
-      .cross-icon {
-        display: none;
-      }
-    }
-  </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const burgerContainer = document.querySelector(".burger-container");
-      const navList = document.querySelector(".nav-list");
-      const burgerIcon = document.querySelector(".burger-icon");
-      const crossIcon = document.querySelector(".cross-icon");
-  
-      function toggleMenu() {
-        const isOpen = navList.classList.toggle("show");
-        if (burgerIcon) {
-          burgerIcon.style.display = isOpen ? "none" : "block";
-        }
-        if (crossIcon) {
-          crossIcon.style.display = isOpen ? "block" : "none";
-        }
-        document.body.style.overflow = isOpen ? "hidden" : "auto";
-      }
-  
       if (crossIcon) {
-        crossIcon.style.display = "none";
+        crossIcon.style.display = isOpen ? "block" : "none";
       }
-  
-      if (burgerContainer) {
-        burgerContainer.addEventListener("click", toggleMenu);
-      }
-    });
-  </script>
+      document.body.style.overflow = isOpen ? "hidden" : "auto";
+    }
 
+    if (crossIcon) {
+      crossIcon.style.display = "none";
+    }
+
+    if (burgerContainer) {
+      burgerContainer.addEventListener("click", toggleMenu);
+    }
+  });
+</script>
+
+<body>
+  <header>
+    <div class="header">
+      <nav class="horizontal-navigation">
+        <div class="burger-container">
+          <div class="burger-icon" onclick="toggleMenu()">&#9776;</div>
+          <div class="cross-icon" onclick="toggleMenu()">		&#215;</div>
+        </div>
+        <ul class="nav-list">
+          <li><a href="/index">HOME</a></li>
+          <li><a href="/about">ABOUT</a></li>
+          <li class="logo">
+            <img
+              src="src/logo/firstclass-logo-svg/logo.svg"
+              alt="First Class Second Hand"
+            />
+          </li>
+          <li class="cta-button"><a href="/listeview">SHOP</a></li>
+          <li><a href="/">CART(0)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</body>

@@ -24,6 +24,14 @@ html {
   /* font-size: calc(15px + 0.390625vw); */
 }
 
+a:hover {
+  text-decoration: underline;
+  color:var(--cta-text);
+}
+a {
+  text-decoration: none;
+  color:var(--primary-text);
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -65,7 +73,7 @@ h1 {
 }
 
 h2 {
-  font-family: var(--font-family-roman);
+  font-family: var(--font-family-medium);
   font-size: 25px;
 
 }
@@ -74,4 +82,8 @@ p {
   font-family: var(--font-family-light);
   font-size: 15px;
 
+}
+h3 {
+  font-family: var(--font-family-medium);
+  font-weight: 500;
 }
