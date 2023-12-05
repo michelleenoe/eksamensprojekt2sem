@@ -2,7 +2,6 @@
 import Mainlayout from "../layouts/Mainlayout.astro";
 import "../css/general.css";
 import "../css/style.css";
-import Liste from "../components/Liste.astro";
 
 const data = await fetch(
   "https://uiovvvgmjftrkbiogyqx.supabase.co/rest/v1/products",
@@ -19,13 +18,37 @@ console.log(data);
 ---
 
 <Mainlayout title="Shop">
-  <section>
-    {
-      data.map((show) => {
-        return <Liste data={show} />;
-      })
-    }
+  <section class="grid-container">
+    {data.map((item) => (
+      <div class="grid-item" key={item.slug}>
+        <a href={`/products/${item.slug}`}>
+          <img class="image" src={item.image} alt="Produktskud" />
+        </a>
+        <a href={`/products/${item.slug}`}>
+          <h2>{item.title}</h2>
+        </a>
+        <p><strong>{item.price}DKK</strong></p>
+        <p><strong>{item.brand}</strong></p>
+      </div>
+    ))}
   </section>
 </Mainlayout>
 
-<style></style>
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+  }
+
+  .grid-item {
+    border: 1px solid #ccc; 
+    text-align: center; 
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>

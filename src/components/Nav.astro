@@ -1,68 +1,143 @@
-<header>
-  <div class="header">
-    <nav class="horizontal-navigation">
-      <ul>
-        <li><a href="/index">HOME</a></li>
-        <li><a href="/about">ABOUT</a></li>
 
-        <li class="logo">
-          <img
-            src="src/logo/firstclass-logo-svg/logo.svg"
-            alt="First Class Second Hand"
-          />
-        </li>
-        <li class="cta-button"><a href="/listeview">SHOP</a></li>
-        <li><a href="/">CART(0)</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  <style>
+    .header {
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 100px;
+    }
 
-<style>
-  .header {
-    margin-top: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 100px;
-  }
+    .horizontal-navigation {
+      flex-grow: 1;
+      position: relative;
+    }
 
-  .horizontal-navigation {
-    flex-grow: 1;
-  }
+    .nav-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: space-around;
+    }
 
-  .horizontal-navigation ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-  }
+    .nav-list li a {
+      text-decoration: none;
+      padding: 10px;
+      color: var(--primary-text);
+    }
 
-  .horizontal-navigation li {
-    display: inline;
-  }
+    .logo img {
+      width: 225px;
+      display: block;
+    }
 
-  .horizontal-navigation li a {
-    text-decoration: none;
-    padding: 10px;
-    color: var(--primary-text);
-  }
+    .logo {
+      margin-top: -1%;
+    }
 
-  .logo img {
-    width: 225px;
-    display: block;
-  }
-  .logo {
-    margin-top: -1%;
-  }
+    .cta-button {
+      background-color: var(--cta-text);
+      box-sizing: border-box;
+    }
 
-  .cta-button {
-    background-color: var(--cta-text);
-    box-sizing: border-box;
-  }
+    .cta-button a {
+      color: white !important;
+    }
 
-  .cta-button a {
-    color: white !important;
-  }
-</style>
+    @media only screen and (max-width: 768px) {
+      .nav-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background-color: white;
+        z-index: 1;
+      }
+
+      .nav-list.show {
+        display: flex;
+      }
+
+      .burger-icon {
+        cursor: pointer;
+        font-size: 40px;
+        position: absolute;
+        right: 15px;
+        display: block;
+      }
+
+      .cross-icon {
+        cursor: pointer;
+        font-size: 40px;
+        position: absolute;
+        right: 15px;
+        display: none;
+      }
+
+      .burger-icon.show {
+        display: none;
+      }
+
+      .cross-icon.show {
+        display: block;
+      }
+
+      .logo {
+        display: none;
+      }
+
+      .burger-icon:hover {
+        color: var(--cta-text);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header">
+      <nav class="horizontal-navigation">
+        <div class="burger-container">
+          <div class="burger-icon" onclick="toggleMenu()">&#9776;</div>
+          <div class="cross-icon" onclick="toggleMenu()">&#10006;</div>
+        </div>
+        <ul class="nav-list">
+          <li><a href="/index">HOME</a></li>
+          <li><a href="/about">ABOUT</a></li>
+          <li class="logo">
+            <img
+              src="src/logo/firstclass-logo-svg/logo.svg"
+              alt="First Class Second Hand"
+            />
+          </li>
+          <li class="cta-button"><a href="/listeview">SHOP</a></li>
+          <li><a href="/">CART(0)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const burgerContainer = document.querySelector(".burger-container");
+      const navList = document.querySelector(".nav-list");
+      const burgerIcon = document.querySelector(".burger-icon");
+      const crossIcon = document.querySelector(".cross-icon");
+  
+      function toggleMenu() {
+        const isOpen = navList.classList.toggle("show");
+        burgerIcon.style.display = isOpen ? "none" : "block";
+        crossIcon.style.display = isOpen ? "block" : "none";
+        document.body.style.overflow = isOpen ? "hidden" : "auto";
+      }
+  
+      // Initially hide the cross icon
+      crossIcon.style.display = "none";
+  
+      burgerContainer.addEventListener("click", toggleMenu);
+    });
+  </script>
+  
+</body>
+</html>
