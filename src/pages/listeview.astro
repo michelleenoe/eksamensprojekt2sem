@@ -1,7 +1,6 @@
 ---
 import Mainlayout from "../layouts/Mainlayout.astro";
-import "../css/general.css";
-import "../css/style.css";
+
 
 const data = await fetch(
   "https://uiovvvgmjftrkbiogyqx.supabase.co/rest/v1/products",
@@ -17,18 +16,20 @@ const data = await fetch(
 console.log(data);
 ---
 
-<Mainlayout title="Shop">
+<Mainlayout title="SHOP">
   <section class="grid-container">
     {data.map((item) => (
       <div class="grid-item" key={item.slug}>
         <a href={`/products/${item.slug}`}>
           <img class="image" src={item.image} alt="Produktskud" />
         </a>
-        <a href={`/products/${item.slug}`}>
-          <h2>{item.title}</h2>
-        </a>
-        <p><strong>{item.price}DKK</strong></p>
-        <p><strong>{item.brand}</strong></p>
+        <div class="item-info">
+          <a href={`/products/${item.slug}`}>
+            <h3 class="h3">{item.brand_front}</h3>
+          </a>
+          <h4 class="h4">{item.price}</h4>
+     
+        </div>
       </div>
     ))}
   </section>
@@ -39,16 +40,33 @@ console.log(data);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 20px;
+    padding:20px;
   }
 
   .grid-item {
-    border: 1px solid #ccc; 
-    text-align: center; 
+
+    text-align: center;
+    height: 700px; 
+    padding:40px;
   }
 
   .image {
     width: 100%;
-    height: auto;
+    height: 100%; 
+    object-fit: cover; 
     display: block;
   }
+  .item-info {
+    padding: 10px;
+    text-align: center;
+  }
+  .h4 {
+    font-family:var(--font-family-light);
+    font-weight: 100 !important;
+  }
+  .h3 {
+    font-weight: 300 !important;
+    font-family: var(--font-family-medium);
+  }
 </style>
+

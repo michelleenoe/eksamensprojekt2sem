@@ -30,8 +30,7 @@ console.log("myData in component:", myData);
   <section>
     <article>
     <a class="backbtn" href="/listeview/">BACK</a>
-    <img src={myData.image} alt="Exhibition photo" />
-  
+    <img src={myData.images} alt="Produktskud" />
       <h2>{myData.price}</h2>
       <div class="info" set:html={myData.brand} />
     </article>

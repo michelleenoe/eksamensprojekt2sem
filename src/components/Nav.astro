@@ -125,31 +125,26 @@
   }
 </style>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const burgerContainer = document.querySelector(".burger-container");
-    const navList = document.querySelector(".nav-list");
-    const burgerIcon = document.querySelector(".burger-icon");
-    const crossIcon = document.querySelector(".cross-icon");
 
-    function toggleMenu() {
-      const isOpen = navList.classList.toggle("show");
-      if (burgerIcon) {
-        burgerIcon.style.display = isOpen ? "none" : "block";
-      }
-      if (crossIcon) {
-        crossIcon.style.display = isOpen ? "block" : "none";
-      }
-      document.body.style.overflow = isOpen ? "hidden" : "auto";
-    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const burgerContainer = document.querySelector(".burger-container");
+      const navList = document.querySelector(".nav-list");
+      const burgerIcon = document.querySelector(".burger-icon");
+      const crossIcon = document.querySelector(".cross-icon");
 
-    if (crossIcon) {
+      function toggleMenu() {
+        navList.classList.toggle("show");
+        burgerIcon.style.display = navList.classList.contains("show") ? "none" : "block";
+        crossIcon.style.display = navList.classList.contains("show") ? "block" : "none";
+        document.body.style.overflow = navList.classList.contains("show") ? "hidden" : "auto";
+      }
+
       crossIcon.style.display = "none";
-    }
 
-    if (burgerContainer) {
-      burgerContainer.addEventListener("click", toggleMenu);
-    }
-  });
+      if (burgerContainer) {
+        burgerContainer.addEventListener("click", toggleMenu);
+      }
+    });
 </script>
 
 <body>
@@ -161,8 +156,8 @@
           <div class="cross-icon" onclick="toggleMenu()">		&#215;</div>
         </div>
         <ul class="nav-list">
-          <li><a href="#">HOME</a></li>
-          <li><a href="/">ABOUT</a></li>
+          <li><a href="/index.html">HOME</a></li>
+          <li><a href="/about">ABOUT</a></li>
           <li class="logo">
             <img
               src="src/logo/firstclass-logo-svg/logo.svg"
