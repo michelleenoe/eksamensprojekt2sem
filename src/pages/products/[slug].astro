@@ -7,7 +7,7 @@ export async function getStaticPaths() {
     {
       method: "GET",
       headers: {
-        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVpb3Z2dmdtamZ0cmtiaW9neXF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDExMTU1MzUsImV4cCI6MjAxNjY5MTUzNX0.K1gnnZYV5aWSc4jzhiX1H2-WIcr2JXnmrj1BylbJRf0", // Replace with your actual API key
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVpb3Z2dmdtamZ0cmtiaW9neXF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDExMTU1MzUsImV4cCI6MjAxNjY5MTUzNX0.K1gnnZYV5aWSc4jzhiX1H2-WIcr2JXnmrj1BylbJRf0", 
       },
     }
   ).then((response) => response.json());
@@ -24,15 +24,69 @@ export async function getStaticPaths() {
 
 const { myData } = Astro.props;
 console.log("myData in component:", myData);
+
+
 ---
 
-<Mainlayout title= {myData.brand}>
+
+<Mainlayout title={myData.brand}>
   <section>
-    <article>
-    <a class="backbtn" href="/listeview/">BACK</a>
-    <img src={myData.images} alt="Produktskud" />
+    <a class="backbtn" href="/listeview/">&#8592;</a>
+    </section>
+  <section class="product-section">
+    <div class="image-container">
+      {myData.images.map((image, index) => (
+        <img src={image} alt="" key={index} />
+      ))}
+    </div>
+    <div></div>
+    <div class="text-container">
+
       <h2>{myData.price}</h2>
-      <div class="info" set:html={myData.brand} />
-    </article>
+      <div class="info">{myData.brand}</div>
+    </div>
+   
   </section>
+
+
+  <style>
+.backbtn {
+  font-size: 45px;
+  color: var(--cta-text);
+  text-decoration: none;
+  cursor: pointer;
+position:absolute;
+right:85%;
+bottom:55%;
+}
+    .product-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3px
+    }
+
+    .text-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .image-container {
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.5s ease;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+
+    }
+
+
+  </style>
+
 </Mainlayout>
