@@ -24,13 +24,31 @@ export async function getStaticPaths() {
 }
 
 const { myData } = Astro.props;
-console.log("myData in component:", myData);
+console.log("myData");
 ---
 
 <Mainlayout title={myData.brand}>
-  <section>
-    <a class="backbtn" href="/listeview/">&#8592;</a>
-  </section>
+
+    <section>
+      <a class="backbtn" href="/listeview/">
+        <svg
+          width="40"
+          height="32"
+          viewBox="0 0 40 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+              d="M4.93934 10.9393C4.35355 11.5251 4.35355 12.4749 4.93934 13.0607L14.4853 22.6066C15.0711 23.1924 16.0208 23.1924 16.6066 22.6066C17.1924 22.0208 17.1924 21.0711 16.6066 20.4853L8.12132 12L16.6066 3.51472C17.1924 2.92893 17.1924 1.97919 16.6066 1.3934C16.0208 0.807614 15.0711 0.807614 14.4853 1.3934L4.93934 10.9393ZM36 10.5L6 10.5L6 13.5L36 13.5L36 10.5Z"
+              fill="#7A1C44"
+            />
+          </g>
+          <defs>
+            
+          </defs>
+        </svg>
+      </a>
+    </section>
   <section class="product-section">
     <div class="image-container">
       {
@@ -47,14 +65,14 @@ console.log("myData in component:", myData);
   </section>
 
   <style>
-    .backbtn {
-      font-size: 45px;
+   svg {
+      display: block;
+      top:18%;
+      left:17%;
       color: var(--cta-text);
       text-decoration: none;
       cursor: pointer;
       position: absolute;
-      right: 85%;
-      bottom: 55%;
     }
     .product-section {
       display: grid;

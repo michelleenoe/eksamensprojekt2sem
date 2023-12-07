@@ -39,14 +39,13 @@ a {
 }
 
 main {
-  width: 90vw;
   max-width: 1200px;
   margin-inline: auto;
 }
 
 :root {
   --primary-text: #0D101D;
-  --secondary-color: white;
+  --secondary-color: #F0EFEC;
   --cta-text: #7A1C44;
   --font-family-medium: "Neue Hass Medium";
   --font-family-roman: "Neue Hass Roman";

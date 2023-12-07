@@ -21,6 +21,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+
   }
 
   .nav-list li a:hover {
@@ -83,6 +84,7 @@
       font-size: 40px;
       position: absolute;
       right: 15px;
+      cursor:pointer;
     }
 
     .cross-icon {
@@ -152,8 +154,10 @@
     <div class="header">
       <nav class="horizontal-navigation">
         <div class="burger-container">
+          
           <div class="burger-icon" onclick="toggleMenu()">&#9776;</div>
           <div class="cross-icon" onclick="toggleMenu()">		&#215;</div>
+          
         </div>
         <ul class="nav-list">
           <li><a href="/index.html">HOME</a></li>
