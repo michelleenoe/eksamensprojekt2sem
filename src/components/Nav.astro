@@ -1,9 +1,18 @@
-<div class="logo1">
-  <img
-    src="/logo/firstclass-logo-svg/logo.svg"
-    alt="First Class Second Hand"
-  />
-</div>
+<body>
+<section class="grid-container">
+  <div class="logo1">
+      <a href="/index.html">
+        <img
+          src="/logo/firstclass-logo-svg/logo.svg"
+          alt="First Class Second Hand"
+        />
+      </a>
+    </div>
+
+  <div class="cart">
+  <a href="/">CART(<span style="color: #7A1C44;">0</span>)</a>
+  </div>
+
     <div class="header">
       <nav class="horizontal-navigation">
         <div class="burger-container">
@@ -16,19 +25,22 @@
           <li><a href="/index.html">HOME</a></li>
           <li><a href="/about">ABOUT</a></li>
           <li class="logo">
-            <img
-              src="/logo/firstclass-logo-svg/logo.svg"
-              alt="First Class Second Hand"
-            />
+            <a href="/index.html">
+              <img
+                src="/logo/firstclass-logo-svg/logo.svg"
+                alt="First Class Second Hand"
+              />
+            </a>
           </li>
           <li class="cta-button"><a href="/listeview">SHOP</a></li>
-          <li><a href="/">CART(<span style="color: #7A1C44;">0</span>)</a></li>
+          <li class="cart1"><a href="/">CART(<span style="color: #7A1C44;">0</span>)</a></li>
 
         </ul>
       </nav>
     </div>
+  </section>
 
-
+</body>
 <style>
   .header {
     margin-top: 50px;
@@ -90,9 +102,13 @@
     background: #9c1652;
     text-decoration: none;
   }
+ 
 
   .cta-button a {
     color: white !important;
+  }
+  .cross-icon, .burger-icon {
+    display:none;
   }
 
   @media only screen and (max-width: 768px) {
@@ -100,16 +116,18 @@
       display: none;
       flex-direction: column;
       position: absolute;
-      top: 60px;
-      right: 0;
-      width: 100%;
+      top: 80px;
+      right:0;
+      width: 450%;
       background-color: var(--background-color);
       z-index: 1;
       gap:20px;
+      padding:10px;
     }
 
     .nav-list.show {
       display: flex;
+
     }
 
     .burger-icon,
@@ -120,7 +138,9 @@
       right: 15px;
       cursor:pointer;
     }
-
+.cart1 {
+  display: none;
+}
     .cross-icon {
       font-size: 55px;
       color:var(--cta-text);
@@ -151,18 +171,50 @@
     .logo {
       display:none;
     }
+    .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 
- 
-.logo1 {display:block;
-  Scale:80%;
+  }
+  .logo1 {
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scale:90%;
+    top:-10%;
+    position: relative;
+  }
+
+  .cart {
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top:-13%;
+
+  }
+.burger-container{
+  grid-column: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
+
+  }
+ 
+  
   @media only screen and (min-width: 769px) {
     .burger-icon,
     .cross-icon {
       display: none;
     }
+    .cart {display:none};
   }
 </style>
+
 <script>
 
     document.addEventListener("DOMContentLoaded", function () {
@@ -173,9 +225,9 @@
 
       function toggleMenu() {
         navList.classList.toggle("show");
-        burgerIcon.style.display = navList.classList.contains("show") ? "none" : "block";
+        burgerIcon.classList.toggle("show");
         crossIcon.style.display = navList.classList.contains("show") ? "block" : "none";
-        document.body.style.overflow = navList.classList.contains("show") ? "hidden" : "auto";
+
       }
 
       crossIcon.style.display = "none";
