@@ -91,11 +91,38 @@ console.log("myData");
 
 <style>
 
+h1 {
+  font-family: var(--font-family-roman);
+  font-size: 30px;
+
+
+}
+
+h2 {
+  font-family: var(--font-family-light);
+  font-size: 25px;
+  padding-bottom: 20px;
+
+
+}
+
+p {
+  font-family: var(--font-family-light);
+  font-size: 17px;
+
+
+}
+h3 {
+  font-family: var(--font-family-light);
+  font-size: 18px;
+  
+
+}
   .btn {
   font-size: 18px;
   color: #fff;
   background-color: var(--cta-text);
-  padding: 13px 83px;
+  padding: 13px 100px;
   border: none;
   box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
   transition : 200ms;
@@ -103,6 +130,7 @@ console.log("myData");
   flex-direction: row;
   align-items: center;
   cursor: pointer;
+  
   
   }
   
@@ -166,68 +194,70 @@ console.log("myData");
       font-size: 16px;
    
     }
-  
     @media only screen and (min-width: 768px) {
-      .product-section {
-        flex-direction: row;
-      }
-    }
+  .product-section {
+    flex-direction: row;
+    align-items: center;
 
-    .image-container {
-      overflow-y: scroll;
-      max-height: 89vh;
-      width: 450px;
-      padding:10px;
 
-    }
-  
-    img {
-      width: 100%;
-      height: auto;
-    
-    }
-  
-    .dots-container {
-      display: flex;
-      gap: 7px;
-      position:relative;
-      bottom:50%;
-      left:200px;
-    }
-    .product-section {
+  }
 
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      padding: 50px;
-}
-    
-    svg {
-      display: block;
-      top: 23%;
-      left: 17%;
-      scale:100%;
-      color: var(--cta-text);
-      text-decoration: none;
-      cursor: pointer;
-      position: absolute;
-    }
-  
-    .text-container {
-      text-align: left;
-      display: grid;
-      grid-column:2/4;
-      grid-row:1;
-      align-items: start;
-    top:grid-column:2/4;0%;
+  .image-container {
+    overflow-y: scroll;
+    max-height: 89vh;
+    width: 450px;
+    padding: 20px;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .dots-container {
+    display: flex;
     position: relative;
-    }
-    .info {
-      margin-bottom: 200px;
-    }
-    .info p {
-      line-height: 1.6;
-      text-align: left;
-    }
+    bottom: 50%;
+    left: 200px;
+  }
 
+  .product-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 50px;
+  }
+
+  svg {
+    display: block;
+    top: 23%;
+    left: 17%;
+    scale: 100%;
+    color: var(--cta-text);
+    text-decoration: none;
+    cursor: pointer;
+    position: absolute;
+  }
+
+  .text-container {
+    text-align: left;
+    display: grid;
+    grid-column: 2/4;
+    grid-row: 1;
+    align-items: start;
+    top: grid-column: 2/4;
+    0%;
+    position: relative;
+    padding-left: 50px;
+  }
+
+  .info {
+    margin-bottom: 200px; 
+  }
+
+  .info p {
+    line-height: 1.6;
+    text-align: left;
+  }
+}
   </style>
