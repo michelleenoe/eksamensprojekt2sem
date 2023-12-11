@@ -1,7 +1,5 @@
 ---
 import Mainlayout from "../layouts/Mainlayout.astro";
-import Filter from "../src/components/Filter.astro";
-
 
 const data = await fetch(
   "https://uiovvvgmjftrkbiogyqx.supabase.co/rest/v1/products",
@@ -14,13 +12,62 @@ const data = await fetch(
   }
 ).then((res) => res.json());
 
-console.log(data);
----
 
+
+export function filterArticles(category) {
+  data.forEach((item) => {
+  if (category === 'top' || item.subsub_category === category) {
+
+  }
+});
+
+  console.log('Filtering articles by category:', category);
+  const articlesContainer = document.getElementById('articles-container');
+  const filterButtons = document.querySelectorAll('.filterbutton');
+  let activeButton = document.querySelector('.filterbutton.active');
+
+  if (activeButton) {
+    activeButton.classList.remove('active');
+  }
+
+  articlesContainer.innerHTML = '';
+
+  data.forEach((item) => {
+    if (category === 'top' || item.subsub_category === category) {
+      const articleElement = document.createElement('div');
+      articleElement.classList.add('grid-item', item.subsub_category);
+      articleElement.innerHTML = `
+        <a href="/products/${item.slug}">
+          <img class="image" src="${item.image}" alt="Produktskud" />
+        </a>
+        <div class="item-info">
+          <a href="/products/${item.slug}">
+            <h3 class="h3">${item.brand_front}</h3>
+          </a>
+          <h4 class="h4">${item.price}</h4>
+        </div>
+      `;
+      articlesContainer.appendChild(articleElement);
+    }
+  });
+
+  const clickedButton = Array.from(filterButtons).find(button => button.dataset.filter === category);
+  if (clickedButton) {
+    activeButton = clickedButton;
+    activeButton.classList.add('active');
+  }
+}
+---
 <Mainlayout title="SHOP">
-  <section class="grid-container">
+  <div class="filter">
+    <a class="filterbutton active" data-filter="top" on:click={() => filterArticles('top')}>Top</a>
+    <a class="filterbutton" data-filter="bottom" on:click={() => filterArticles('bottom')}>Bottom</a>
+    <a class="filterbutton" data-filter="accessories" on:click={() => filterArticles('accessories')}>Accessories</a>
+  </div>
+  
+  <section class="grid-container" id="articles-container">
     {data.map((item) => (
-      <div class="grid-item" key={item.slug}>
+      <div class={`grid-item ${item.subsub_category}`} key={item.slug}>
         <a href={`/products/${item.slug}`}>
           <img class="image" src={item.image} alt="Produktskud" />
         </a>
@@ -29,12 +76,13 @@ console.log(data);
             <h3 class="h3">{item.brand_front}</h3>
           </a>
           <h4 class="h4">{item.price}</h4>
-     
         </div>
       </div>
     ))}
   </section>
 </Mainlayout>
+
+
 <style>
 .grid-container {
   display: grid;
@@ -70,6 +118,37 @@ console.log(data);
   font-weight: 300 !important;
   font-family: var(--font-family-roman);
 }
+.filterbutton:hover {
+  cursor:pointer;
+}
+.filter {
+    padding: 10px 20px;
+    letter-spacing: 4px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 0.2s;
+    margin: 5px 0;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+  }
+
+  .filterbutton {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-size: 24px;
+    overflow: hidden;
+    transition: 0.2s;
+    margin: 5px 0;
+  }
+
+  .filterbutton.active {
+    color: var(--cta-text);
+  }
 
 
 @media only screen and (max-width: 767px) {
@@ -82,4 +161,4 @@ console.log(data);
     height: auto;
   }
 }
-
+</style>

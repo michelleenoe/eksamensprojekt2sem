@@ -49,55 +49,59 @@ console.log("myData");
         </svg>
       </a>
     </section>
-  <section class="product-section">
-    <div class="image-container">
-      {
-        myData.images.map((image, index) => (
-          <img src={image} alt="" key={index} />
-        ))
+
+
+    <section class="product-section">
+      <div class="image-container">
+        {
+          myData.images.map((image, index) => (
+            <img src={image} alt="" key={index} />
+          ))
+        }
+      </div>
+      <div></div>
+      <div class="text-container">
+        <h2>{myData.price}</h2>
+        <div class="info">{myData.brand}</div>
+      </div>
+    </section>
+    
+    <style>
+      svg {
+        display: block;
+        top: 18%;
+        left: 17%;
+        color: var(--cta-text);
+        text-decoration: none;
+        cursor: pointer;
+        position: absolute;
       }
-    </div>
-    <div></div>
-    <div class="text-container">
-      <h2>{myData.price}</h2>
-      <div class="info">{myData.brand}</div>
-    </div>
-  </section>
-
-  <style>
-   svg {
-      display: block;
-      top:18%;
-      left:17%;
-      color: var(--cta-text);
-      text-decoration: none;
-      cursor: pointer;
-      position: absolute;
-    }
-    .product-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 3px;
-    }
-
-    .text-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-    }
-
-    .image-container {
-      overflow: hidden;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.5s ease;
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-    }
-  </style>
+    
+      .product-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 3px;
+      }
+    
+      .text-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+      }
+    
+      .image-container {
+        overflow-y: auto;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.5s ease;
+      }
+    
+      img {
+        width: 100%;
+        height: auto;
+      }
+    </style>
+    
 </Mainlayout>
