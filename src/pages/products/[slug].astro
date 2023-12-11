@@ -29,79 +29,99 @@ console.log("myData");
 
 <Mainlayout title={myData.brand}>
 
-    <section>
-      <a class="backbtn" href="/listeview/">
-        <svg
-          width="40"
-          height="32"
-          viewBox="0 0 40 32"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-            <path
-              d="M4.93934 10.9393C4.35355 11.5251 4.35355 12.4749 4.93934 13.0607L14.4853 22.6066C15.0711 23.1924 16.0208 23.1924 16.6066 22.6066C17.1924 22.0208 17.1924 21.0711 16.6066 20.4853L8.12132 12L16.6066 3.51472C17.1924 2.92893 17.1924 1.97919 16.6066 1.3934C16.0208 0.807614 15.0711 0.807614 14.4853 1.3934L4.93934 10.9393ZM36 10.5L6 10.5L6 13.5L36 13.5L36 10.5Z"
-              fill="#7A1C44"
-            />
-          </g>
-          <defs>
-            
-          </defs>
-        </svg>
-      </a>
-    </section>
+  <section>
+    <a class="backbtn" href="/listeview/">
+      <svg
+        width="40"
+        height="32"
+        viewBox="0 0 40 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.93934 10.9393C4.35355 11.5251 4.35355 12.4749 4.93934 13.0607L14.4853 22.6066C15.0711 23.1924 16.0208 23.1924 16.6066 22.6066C17.1924 22.0208 17.1924 21.0711 16.6066 20.4853L8.12132 12L16.6066 3.51472C17.1924 2.92893 17.1924 1.97919 16.6066 1.3934C16.0208 0.807614 15.0711 0.807614 14.4853 1.3934L4.93934 10.9393ZM36 10.5L6 10.5L6 13.5L36 13.5L36 10.5Z"
+          fill="#7A1C44"
+        />
+      </svg>
+    </a>
+  </section>
 
-
-    <section class="product-section">
-      <div class="image-container">
-        {
-          myData.images.map((image, index) => (
-            <img src={image} alt="" key={index} />
-          ))
-        }
-      </div>
-      <div></div>
-      <div class="text-container">
-        <h2>{myData.brand}</h2>
-        <div class="info">{myData.price}</div>
-      </div>
-    </section>
-    
-    <style>
-      svg {
-        display: block;
-        top: 18%;
-        left: 17%;
-        color: var(--cta-text);
-        text-decoration: none;
-        cursor: pointer;
-        position: absolute;
+  <section class="product-section">
+    <div class="image-container">
+      {
+        myData.images.map((image, index) => (
+          <div id={`image-${index + 1}`} key={index}>
+            <img src={image} alt="" />
+          </div>
+        ))
       }
-    
+    </div>
+    <div class="text-container">
+      <h2>{myData.price}</h2>
+      <div class="info">{myData.brand}</div>
+    </div>
+  </section>
+  
+  <div class="dots-container">
+    {
+      myData.images.map((_, index) => (
+        <a href={`#image-${index + 1}`} key={index}>●</a>
+      ))
+    }
+  </div>
+  
+  <style>
+    svg {
+      display: block;
+      top: 18%;
+      left: 17%;
+      color: var(--cta-text);
+      text-decoration: none;
+      cursor: pointer;
+      position: absolute;
+    }
+  
+    .product-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 20px;
+    }
+  
+    .text-container {
+      text-align: center;
+    }
+  
+    .image-container {
+      overflow-y: scroll;
+      max-height: 90vh;
+      width: 550px;
+      scrollbar-width: thin;
+      scroll-behavior: smooth;
+    }
+  
+    img {
+      width: 90%;
+      height: auto;
+    }
+  
+    .dots-container {
+      display: flex;
+      gap: 5px;
+      margin-top: 10px; 
+    }
+  
+    .dots-container a {
+      text-decoration: none;
+      color: #000;
+      font-size: 16px;
+   
+    }
+  
+    @media only screen and (min-width: 768px) {
       .product-section {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 3px;
+        flex-direction: row;
       }
-    
-      .text-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-      }
-    
-      .image-container {
-        overflow-y: auto;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        transition: transform 0.5s ease;
-      }
-    
-      img {
-        width: 100%;
-        height: auto;
-      }
-    </style>
-    
-</Mainlayout>
+    }
+  </style>
