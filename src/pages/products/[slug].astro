@@ -1,5 +1,7 @@
 ---
 import Mainlayout from "../../layouts/Mainlayout.astro";
+import Insta from "../../components/Insta.astro";
+import Related from "../../components/Related.astro";
 
 export async function getStaticPaths() {
   const data = await fetch(
@@ -89,7 +91,8 @@ console.log("myData");
   </section>
   
 
-
+<Insta/>
+<Related/>
 
 <style>
 

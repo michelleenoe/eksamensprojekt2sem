@@ -1,0 +1,72 @@
+---
+const data = await fetch(
+  "https://uiovvvgmjftrkbiogyqx.supabase.co/rest/v1/products",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVpb3Z2dmdtamZ0cmtiaW9neXF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDExMTU1MzUsImV4cCI6MjAxNjY5MTUzNX0.K1gnnZYV5aWSc4jzhiX1H2-WIcr2JXnmrj1BylbJRf0",
+    },
+  }
+).then((res) => res.json());
+---
+<div class="tekst">
+    <h3>RELATED PRODUCTS</h3>
+</div>
+<section class="image-grid">
+
+    {data
+      .filter((item) => [15, 7, 13].includes(item.id))
+      .map((item) => (
+        <div class="grid-item" key={item.slug}>
+   
+          <a href={`/products/${item.slug}`}>
+            <img class="image" src={item.image} alt="Produktskud" />
+          </a>
+          <div class="item-info">
+            <a href={`/products/${item.slug}`}>
+              <p>{item.brand_front}</p>
+            </a>
+            <p>{item.price}</p>
+          </div>
+        </div>
+      ))}
+  </section>
+  
+  
+  
+  <style>
+        .image-grid {
+      grid-template-columns: 1fr; 
+    }
+  
+    .grid-item {
+      text-align: center; 
+
+    }
+  .image {
+    width: 100%;
+  height: 80%;
+  scale:90%;
+  }
+  .tekst {
+    text-align: center;
+  }
+  @media (min-width: 768px) {
+    .image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+  
+.image {
+scale:98%;
+height:100%;
+width: 100%;
+
+  }
+}
+</style>
+  
