@@ -68,14 +68,14 @@ console.log("myData");
 
   
     <div class="text-container">
-      <h2>{myData.brand}</h2>
-      <div class="info">{myData.price}
+      <h1>{myData.brand}</h1>
+      <div class="info"><h2>{myData.price}</h2>
         <button class="btn">SHOP</button>
     <div class="info">
-      <p><strong>STØRRELSE:</strong> {myData.size}</p>
-      <p><strong>BRAND:</strong> {myData.brand}</p>
-      <p><strong>MATERIALE:</strong> {myData.material}</p>
-      <p><strong>STAND:</strong> {myData.condition}</p>
+      <h3><strong>STØRRELSE:</strong> {myData.size}</h3>
+      <h3><strong>BRAND:</strong> {myData.brand}</h3>
+      <h3><strong>MATERIALE:</strong> {myData.material}</h3>
+      <h3><strong>STAND:</strong> {myData.condition}</h3>
       </div>
       <div>
       <p><strong>MODEL</strong></p>
@@ -196,10 +196,10 @@ console.log("myData");
     }
     .product-section {
 
- display: grid;
- grid-template-columns: 1fr 1fr;
- grid-template-rows: 1fr 1fr;
- padding: 50px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      padding: 50px;
 }
     
     svg {
@@ -215,21 +215,19 @@ console.log("myData");
   
     .text-container {
       text-align: left;
- display: grid;
- grid-column:2/4;
- grid-row:1;
- align-items: start;
+      display: grid;
+      grid-column:2/4;
+      grid-row:1;
+      align-items: start;
     top:grid-column:2/4;0%;
     position: relative;
     }
     .info {
-    
       margin-bottom: 200px;
-
     }
     .info p {
       line-height: 1.6;
       text-align: left;
     }
-    
+
   </style>
