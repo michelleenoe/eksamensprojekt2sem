@@ -71,6 +71,7 @@
 
   .nav-list li a:hover {
     color: var(--cta-text);
+    text-decoration: underline;
   }
 
   .nav-list li a {
@@ -79,15 +80,18 @@
     color: var(--primary-text);
   }
 
-  .logo img {
-    width: 350px;
-    display: block;
-    margin: 0 auto;
-  }
-
   .logo {
-    flex: 1;
-  }
+
+  align-items: center; 
+  display: block;
+}
+
+.logo img {
+  flex: 1;
+  width:400px; 
+  margin: 0 auto;
+
+}
 
   .cta-button {
     color: white;
@@ -100,7 +104,8 @@
     display: flex;
     flex-direction: column;
     cursor: pointer;
-  }
+  } 
+
 
   .cta-button:hover {
     background: #9c1652;
@@ -181,6 +186,7 @@
     .grid-container {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
+
     }
     .logo1 {
       grid-column: 1;
