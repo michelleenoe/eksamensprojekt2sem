@@ -30,7 +30,7 @@
               />
             </a>
           </li>
-          <li class="cta-button"><a href="/listeview"><p>SHOP</p></a></li>
+          <li class="cta-button"><a href="/listeview">SHOP</a></li>
           <li class="cart1">
             <a href="/">CART(<span style="color: #7A1C44;">0</span>)</a>
           </li>
@@ -47,7 +47,9 @@
     align-items: center;
     margin-bottom: 100px;
   }
-
+  .cta-button a {
+  font-family: var(--font-family-light);
+  }
   .horizontal-navigation {
     flex-grow: 1;
     position: relative;
@@ -89,7 +91,7 @@
 
   .cta-button {
     color: white;
-    font-size: 10px;
+    font-size: 18px;
     padding: 10px 40px;
     background: #7a1c44;
     text-decoration: none;
@@ -126,6 +128,13 @@
       gap: 20px;
       padding: 10px;
     }
+    .cta-button {
+
+    padding:0px;
+    line-height: 1.6;
+    font-size: 17px;
+  
+  }
 
     .nav-list.show {
       display: flex;
