@@ -1,0 +1,72 @@
+
+<section>
+    <div class="instagram-section">
+      <h3>FØLG OS PÅ <a href="https://www.instagram.com">INSTAGRAM</a></h3>
+      <!-- https://developers.facebook.com/docs/instagram-basic-display-api -->
+    </div>
+  </section>
+<section class="image-grid">
+
+    <div class="grid-item">
+      <img src="/public/img/insta/beige-side2.webp" alt="Billede 1">
+    </div>
+    <div class="grid-item">
+      <img src="/public/img/insta/fur_side.webp" alt="Billede 2">
+    </div>
+    <div class="grid-item">
+      <img src="/public/img/insta/fur-side.webp" alt="Billede 3">
+    </div>
+    <div class="grid-item">
+      <img src="/public/img/insta/leo_wall.webp" alt="Billede 4">
+    </div>
+    <div class="grid-item">
+      <img src="/public/img/insta/louis_front1.webp" alt="Billede 5">
+    </div>
+    <div class="grid-item">
+      <img src="/public/img/insta/naja-front1.webp" alt="Billede 6">
+    </div>
+    <div class="grid-item">
+      <img src="public/img/insta/stiletter-2.webp" alt="Billede 7">
+    </div>
+    <div class="grid-item">
+      <img src="/public/img/insta/shorts-back1.webp" alt="Billede 8">
+    </div>
+  </section>
+
+  <style>
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  max-width: 800px;
+  margin: 0 auto; 
+}
+  .grid-item {
+
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .instagram-section {
+    margin: 0 auto; 
+    max-width: 800px;
+  }
+
+  @media only screen and (max-width: 768px) {
+
+    .image-grid {
+        display:none;
+    }
+
+    .instagram-section {
+        display: none;
+    }
+  }
+</style>
