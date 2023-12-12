@@ -38,9 +38,10 @@ a {
   padding: 0;
 }
 
+
 main {
-  max-width: 1200px;
-  margin-inline: auto;
+  width: 1200px;
+  margin-inline:  auto;
 }
 
 :root {
