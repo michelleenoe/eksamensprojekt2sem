@@ -30,7 +30,6 @@ console.log("myData");
 ---
 
 <Mainlayout title={myData.brand}>
-
   <section>
     <a class="backbtn" href="/listeview/">
       <svg
@@ -42,8 +41,7 @@ console.log("myData");
       >
         <path
           d="M4.93934 10.9393C4.35355 11.5251 4.35355 12.4749 4.93934 13.0607L14.4853 22.6066C15.0711 23.1924 16.0208 23.1924 16.6066 22.6066C17.1924 22.0208 17.1924 21.0711 16.6066 20.4853L8.12132 12L16.6066 3.51472C17.1924 2.92893 17.1924 1.97919 16.6066 1.3934C16.0208 0.807614 15.0711 0.807614 14.4853 1.3934L4.93934 10.9393ZM36 10.5L6 10.5L6 13.5L36 13.5L36 10.5Z"
-          fill="#7A1C44"
-        />
+          fill="#7A1C44"></path>
       </svg>
     </a>
   </section>
@@ -55,291 +53,272 @@ console.log("myData");
           <div id={`image-${index + 1}`} key={index}>
             <img src={image} alt="" />
           </div>
-
         ))
       }
     </div>
     <div class="dots-container">
-
       {
         myData.images.map((_, index) => (
-          <a href={`#image-${index + 1}`} key={index}>●</a>
+          <a href={`#image-${index + 1}`} key={index}>
+            ●
+          </a>
         ))
       }
     </div>
 
-  
     <div class="text-container">
       <h1>{myData.brand}</h1>
-     <h2>{myData.price}</h2>
-     <div class="info_copy"><p>her står der en dejlig copy om tøjet mhh</p></div>
-        <div class="btn-container">
+      <h2>{myData.price}</h2>
+      <div class="info_copy">
+        <p>her står der en dejlig copy om tøjet mhh</p>
+      </div>
+      <div class="btn-container">
         <button class="btn"><p>SHOP</p></button>
       </div>
-    <div class="info">
-      <h3><strong>STØRRELSE:</strong> {myData.size}</h3>
-      <h3><strong>BRAND:</strong> {myData.brand}</h3>
-      <h3><strong>MATERIALE:</strong> {myData.material}</h3>
-      <h3><strong>STAND:</strong> {myData.condition}</h3>
+      <div class="info">
+        <h3><strong>STØRRELSE:</strong> {myData.size}</h3>
+        <h3><strong>BRAND:</strong> {myData.brand}</h3>
+        <h3><strong>MATERIALE:</strong> {myData.material}</h3>
+        <h3><strong>STAND:</strong> {myData.condition}</h3>
       </div>
       <div class="model">
-      <p><strong>MODEL</strong></p>
+        <p><strong>MODEL</strong></p>
 
-      <p><strong>HØJDE: </strong>180cm</p><p><strong>STØRRELSE:</strong>XS - S</p>
-      <div class="vintage-text">
-      <p><em>Vintage and secondhand items may come with minor flaws due to pre-loved wear.</em></p>
-    </div>
-    </div>
+        <p><strong>HØJDE:</strong>180cm</p><p>
+          <strong>STØRRELSE:</strong>XS - S
+        </p>
+        <div class="vintage-text">
+          <p>
+            <em
+              >Vintage and secondhand items may come with minor flaws due to
+              pre-loved wear.</em>
+          </p>
+        </div>
+      </div>
     </div>
   </section>
-  
 
-<Insta/>
-<Related/>
+  <Insta />
+  <Related />
 
-<style>
+  <style>
+    h1 {
+      font-family: var(--font-family-roman);
+      font-size: 30px;
+      font-weight: 100;
+    }
 
-h1 {
-  font-family: var(--font-family-roman);
-  font-size: 30px;
-  font-weight: 100;
+    h2 {
+      font-family: var(--font-family-light);
+      font-size: 25px;
+      padding-bottom: 20px;
+      font-weight: 100;
+    }
 
+    p {
+      font-family: var(--font-family-light);
+      font-size: 17px;
+    }
+    .info_copy p {
+      padding: 20px;
+      text-align: center;
+    }
 
-}
+    h3 {
+      font-family: var(--font-family-light);
+      font-size: 18px;
+      font-weight: 100;
+    }
+    p {
+      font-weight: 100;
+    }
 
-h2 {
-  font-family: var(--font-family-light);
-  font-size: 25px;
-  padding-bottom: 20px;
-  font-weight: 100;
+    .btn {
+      font-size: 15px;
+      color: var(--secondary-color);
+      background-color: var(--cta-text);
+      padding: 15px 100px;
+      border: none;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      letter-spacing: 1px;
+    }
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      padding-bottom: 30px;
+    }
 
+    .btn:hover {
+      transition: 0.52s;
+      background-color: transparent;
+      color: var(--cta-text);
+      border: solid 0.5px var(--cta-text);
+    }
 
-}
-
-p {
-  font-family: var(--font-family-light);
-  font-size: 17px;
-}
-.info_copy p{
-  padding:20px;
-  text-align: center;
-}
-
-h3 {
-  font-family: var(--font-family-light);
-  font-size: 18px; 
-  font-weight: 100;
-}
-p {
-  font-weight: 100;
-}
-
-  .btn {
-  font-size: 15px;
-  color: var(--secondary-color);
-  background-color: var(--cta-text);
-  padding: 15px 100px;
-  border: none;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  letter-spacing: 1px;
-  
-  
-  }
-  .btn-container {
-    display: flex;
-  justify-content: center;
-  margin-top: 20px; 
-  padding-bottom:30px;
-}
-
-  
-  
-  
-  .btn:hover{
-  transition :0.52s;
-  background-color:transparent;
-  color: var(--cta-text);
-  border: solid 0.5px var(--cta-text);
-  
-  }
- 
     svg {
       display: block;
       top: 10%;
       left: 3%;
-      scale:80%;
+      scale: 80%;
       color: var(--cta-text);
       text-decoration: none;
       cursor: pointer;
       position: absolute;
     }
-  
+
     .product-section {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: left;
       gap: 5px;
-
     }
 
     .text-container {
       text-align: left;
     }
-  
+
     .image-container {
       overflow-y: auto;
       max-height: auto;
       width: 100%;
       scrollbar-width: thin;
-      padding:10px;
-  }
-  
+      padding: 10px;
+    }
+
     img {
       width: 100%;
       height: auto;
-      padding-bottom:20px;
- 
+      padding-bottom: 20px;
     }
-    .vintage-text, .vintage-text p {
-      margin-top:4rem;
+    .vintage-text,
+    .vintage-text p {
+      margin-top: 4rem;
       text-align: center;
       font-size: 15px;
-      
     }
     .vintage-text {
       border-bottom: 0.5px solid var(--cta-text);
       padding-bottom: 80px;
     }
 
-  
     .dots-container {
       display: flex;
       gap: 5px;
-      margin-top: 10px; 
-      position:relative;
+      margin-top: 10px;
+      position: relative;
     }
-  
+
     .dots-container a {
       text-decoration: none;
       color: var(--cta-text);
       font-size: 16px;
-   
-    
     }
-    
-    
-    .info, .model {
-      padding-top:60px;
+
+    .info,
+    .model {
+      padding-top: 60px;
       line-height: 2rem;
       text-align: left;
-      padding:45px;
+      padding: 45px;
     }
     .text-container {
-    text-align: center;
-    margin-top: 10px;
-  }
+      text-align: center;
+      margin-top: 10px;
+    }
     @media only screen and (min-width: 768px) {
-    .product-section {
-    flex-direction: row;
-    align-items: center;
+      .product-section {
+        flex-direction: row;
+        align-items: center;
+      }
 
+      .image-container {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        max-height: 89vh;
+        width: 450px;
+        padding: 20px;
+      }
+      img {
+        width: 100%;
+        height: auto;
+      }
 
-  }
+      .dots-container {
+        display: flex;
+        position: relative;
+        bottom: 50%;
+        left: 200px;
+      }
+      .info,
+      .model {
+        line-height: 2rem;
+        text-align: left;
+        padding: 0;
+      }
 
-  .image-container {
-      overflow-x: hidden;
-      overflow-y: scroll;
-      max-height: 89vh;
-      width: 450px;
-      padding: 20px;
+      .product-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+      }
+      .vintage-text {
+        border: none;
+        padding-bottom: 20px;
+      }
+      .vintage-text p {
+        text-align: left;
+      }
+      svg {
+        display: block;
+        top: 23%;
+        left: 17%;
+        scale: 100%;
+        color: var(--cta-text);
+        text-decoration: none;
+        cursor: pointer;
+        position: absolute;
+      }
+
+      .text-container {
+        text-align: left;
+        display: grid;
+        grid-column: 2/4;
+        grid-row: 1;
+        align-items: start;
+        position: relative;
+        padding: 1px 1px 1px 100px;
+      }
+
+      .info p {
+        line-height: 1.6;
+        text-align: left;
+      }
+      .info_copy p {
+        text-align: left;
+        padding: 0;
+      }
+      .btn {
+        font-size: 18px;
+        color: var(--secondary-color);
+        background-color: var(--cta-text);
+        padding: 13px 100px;
+        border: none;
+        box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+        transition: 200ms;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        cursor: pointer;
+      }
+      .btn-container {
+        display: flex;
+        justify-content: left;
+        margin-top: 20px;
+      }
     }
-  img {
-    width: 100%;
-    height: auto;
-  }
-
-  .dots-container {
-    display: flex;
-    position: relative;
-    bottom: 50%;
-    left: 200px;
-  }
-  .info,
-.model {
-  line-height:2rem;
-  text-align:left;
-  padding:0;
-}
-
-  .product-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-  }
-  .vintage-text {
-      border: none;
-      padding-bottom: 20px;
-
-    }
-.vintage-text p {
-  text-align: left;
-}
-  svg {
-    display: block;
-    top: 23%;
-    left: 17%;
-    scale: 100%;
-    color: var(--cta-text);
-    text-decoration: none;
-    cursor: pointer;
-    position: absolute;
-  }
-
-  .text-container {
-    text-align: left;
-    display: grid;
-    grid-column: 2/4;
-    grid-row: 1;
-    align-items: start;
-    position: relative;
-    padding: 1px  1px 1px 100px;
-
-  }
-
-  .info p {
-    line-height: 1.6;
-    text-align: left;
-  
-}
-.info_copy p {
-  text-align: left;
-  padding:0;
-}
-.btn {
-  font-size: 18px;
-  color: var(--secondary-color);
-  background-color: var(--cta-text);
-  padding: 13px 100px;
-  border: none;
-  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
-  transition : 200ms;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  cursor: pointer;
-}
-  .btn-container {
-    display: flex;
-  justify-content: left;
-  margin-top: 20px; 
-
-
-}
-  }
-  
-
-
   </style>
+</Mainlayout>
