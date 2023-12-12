@@ -65,11 +65,13 @@ export function filterArticles(category) {
       data-filter="top"
       on:click={() => filterArticles("top")}>Top</a
     >
+    <span class="separator">|</span>
     <a
       class="filterbutton"
       data-filter="bottom"
       on:click={() => filterArticles("bottom")}>Bottom</a
     >
+    <span class="separator">|</span>
     <a
       class="filterbutton"
       data-filter="accessories"
@@ -123,19 +125,21 @@ export function filterArticles(category) {
   }
 
   .h4 {
-    font-family: var(--font-family-light);
+    font-family: var(--font-family-roman);
     font-weight: 100 !important;
   }
 
   .h3 {
-    font-weight: 300 !important;
     font-family: var(--font-family-roman);
   }
   .filterbutton:hover {
     cursor: pointer;
   }
   .filter {
-    padding: 10px 20px;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    padding-top: 105px;
     letter-spacing: 4px;
     text-decoration: none;
     overflow: hidden;
@@ -144,19 +148,21 @@ export function filterArticles(category) {
     display: flex;
     justify-content: center;
     margin-bottom: 5%;
+
   }
 
   .filterbutton {
     position: relative;
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px;
     text-transform: uppercase;
     letter-spacing: 4px;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 15px;
     overflow: hidden;
     transition: 0.2s;
     margin: 5px 0;
+
   }
 
   .filterbutton.active {
