@@ -74,7 +74,7 @@ console.log("myData");
      <h2>{myData.price}</h2>
      <div class="info_copy"><p>her står der en dejlig copy om tøjet mhh</p></div>
         <div class="btn-container">
-        <button class="btn">SHOP</button>
+        <button class="btn"><p>SHOP</p></button>
       </div>
     <div class="info">
       <h3><strong>STØRRELSE:</strong> {myData.size}</h3>
@@ -136,11 +136,10 @@ p {
 
   .btn {
   font-size: 15px;
-  color: #fff;
+  color: var(--secondary-color);
   background-color: var(--cta-text);
   padding: 15px 100px;
   border: none;
-  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -160,7 +159,7 @@ p {
   
   .btn:hover{
   transition :0.52s;
-  background-color: #00000000;
+  background-color:transparent;
   color: var(--cta-text);
   border: solid 0.5px var(--cta-text);
   
@@ -185,18 +184,16 @@ p {
       gap: 5px;
 
     }
-  
+
     .text-container {
       text-align: left;
     }
   
     .image-container {
-    overflow-x: auto;
-    overflow-y: hidden;
-    max-height: auto;
-    width: 100%;
-    scrollbar-width: thin;
-    scroll-behavior: smooth;
+      overflow-y: auto;
+      max-height: auto;
+      width: 100%;
+      scrollbar-width: thin;
       padding:10px;
   }
   
@@ -210,9 +207,13 @@ p {
       margin-top:4rem;
       text-align: center;
       font-size: 15px;
-    border-bottom: 0.5 solid var(--cta-text);
       
     }
+    .vintage-text {
+      border-bottom: 0.5px solid var(--cta-text);
+      padding-bottom: 80px;
+    }
+
   
     .dots-container {
       display: flex;
@@ -228,6 +229,7 @@ p {
    
     
     }
+    
     
     .info, .model {
       padding-top:60px;
@@ -265,13 +267,26 @@ p {
     bottom: 50%;
     left: 200px;
   }
+  .info,
+.model {
+  line-height:2rem;
+  text-align:left;
+  padding:0;
+}
 
   .product-section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
   }
+  .vintage-text {
+      border: none;
+      padding-bottom: 20px;
 
+    }
+.vintage-text p {
+  text-align: left;
+}
   svg {
     display: block;
     top: 23%;
@@ -289,14 +304,9 @@ p {
     grid-column: 2/4;
     grid-row: 1;
     align-items: start;
-    top: grid-column: 2/4;
     position: relative;
-    left: 20%;
-    bottom:-5%;
-  }
+    padding: 1px  1px 1px 100px;
 
-  .info {
-    margin-bottom: 200px; 
   }
 
   .info p {
@@ -304,9 +314,13 @@ p {
     text-align: left;
   
 }
+.info_copy p {
+  text-align: left;
+  padding:0;
+}
 .btn {
   font-size: 18px;
-  color: #fff;
+  color: var(--secondary-color);
   background-color: var(--cta-text);
   padding: 13px 100px;
   border: none;
@@ -324,7 +338,6 @@ p {
 
 
 }
-
   }
   
 
