@@ -72,7 +72,7 @@ console.log("myData");
     <div class="text-container">
       <h1>{myData.brand}</h1>
      <h2>{myData.price}</h2>
-     <div class="info">
+     <div class="info_copy"><p>her står der en dejlig copy om tøjet mhh</p></div>
         <div class="btn-container">
         <button class="btn">SHOP</button>
       </div>
@@ -102,6 +102,7 @@ console.log("myData");
 h1 {
   font-family: var(--font-family-roman);
   font-size: 30px;
+  font-weight: 100;
 
 
 }
@@ -110,6 +111,7 @@ h2 {
   font-family: var(--font-family-light);
   font-size: 25px;
   padding-bottom: 20px;
+  font-weight: 100;
 
 
 }
@@ -117,15 +119,21 @@ h2 {
 p {
   font-family: var(--font-family-light);
   font-size: 17px;
-
-
 }
+.info_copy p{
+  padding:20px;
+  text-align: center;
+}
+
 h3 {
   font-family: var(--font-family-light);
-  font-size: 18px;
-  
-
+  font-size: 18px; 
+  font-weight: 100;
 }
+p {
+  font-weight: 100;
+}
+
   .btn {
   font-size: 15px;
   color: #fff;
@@ -180,8 +188,6 @@ h3 {
   
     .text-container {
       text-align: left;
-      
-      
     }
   
     .image-container {
@@ -200,8 +206,12 @@ h3 {
       padding-bottom:20px;
  
     }
-    .vintage-text {
-      padding: 2rem;
+    .vintage-text, .vintage-text p {
+      margin-top:4rem;
+      text-align: center;
+      font-size: 15px;
+    border-bottom: 0.5 solid var(--cta-text);
+      
     }
   
     .dots-container {
@@ -220,10 +230,10 @@ h3 {
     }
     
     .info, .model {
-      margin-bottom:40px;
+      padding-top:60px;
       line-height: 2rem;
       text-align: left;
-      padding: 20px;
+      padding:45px;
     }
     .text-container {
     text-align: center;
