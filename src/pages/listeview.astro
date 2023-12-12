@@ -12,30 +12,27 @@ const data = await fetch(
   }
 ).then((res) => res.json());
 
-
-
 export function filterArticles(category) {
   data.forEach((item) => {
-  if (category === 'top' || item.subsub_category === category) {
+    if (category === "top" || item.subsub_category === category) {
+    }
+  });
 
-  }
-});
-
-  console.log('Filtering articles by category:', category);
-  const articlesContainer = document.getElementById('articles-container');
-  const filterButtons = document.querySelectorAll('.filterbutton');
-  let activeButton = document.querySelector('.filterbutton.active');
+  console.log("Filtering articles by category:", category);
+  const articlesContainer = document.getElementById("articles-container");
+  const filterButtons = document.querySelectorAll(".filterbutton");
+  let activeButton = document.querySelector(".filterbutton.active");
 
   if (activeButton) {
-    activeButton.classList.remove('active');
+    activeButton.classList.remove("active");
   }
 
-  articlesContainer.innerHTML = '';
+  articlesContainer.innerHTML = "";
 
   data.forEach((item) => {
-    if (category === 'top' || item.subsub_category === category) {
-      const articleElement = document.createElement('div');
-      articleElement.classList.add('grid-item', item.subsub_category);
+    if (category === "top" || item.subsub_category === category) {
+      const articleElement = document.createElement("div");
+      articleElement.classList.add("grid-item", item.subsub_category);
       articleElement.innerHTML = `
         <a href="/products/${item.slug}">
           <img class="image" src="${item.image}" alt="Produktskud" />
@@ -51,77 +48,93 @@ export function filterArticles(category) {
     }
   });
 
-  const clickedButton = Array.from(filterButtons).find(button => button.dataset.filter === category);
+  const clickedButton = Array.from(filterButtons).find(
+    (button) => button.dataset.filter === category
+  );
   if (clickedButton) {
     activeButton = clickedButton;
-    activeButton.classList.add('active');
+    activeButton.classList.add("active");
   }
 }
 ---
+
 <Mainlayout title="SHOP">
   <div class="filter">
-    <a class="filterbutton active" data-filter="top" on:click={() => filterArticles('top')}>Top</a>
-    <a class="filterbutton" data-filter="bottom" on:click={() => filterArticles('bottom')}>Bottom</a>
-    <a class="filterbutton" data-filter="accessories" on:click={() => filterArticles('accessories')}>Accessories</a>
+    <a
+      class="filterbutton active"
+      data-filter="top"
+      on:click={() => filterArticles("top")}>Top</a
+    >
+    <a
+      class="filterbutton"
+      data-filter="bottom"
+      on:click={() => filterArticles("bottom")}>Bottom</a
+    >
+    <a
+      class="filterbutton"
+      data-filter="accessories"
+      on:click={() => filterArticles("accessories")}>Accessories</a
+    >
   </div>
-  
+
   <section class="grid-container" id="articles-container">
-    {data.map((item) => (
-      <div class={`grid-item ${item.subsub_category}`} key={item.slug}>
-        <a href={`/products/${item.slug}`}>
-          <img class="image" src={item.image} alt="Produktskud" />
-        </a>
-        <div class="item-info">
+    {
+      data.map((item) => (
+        <div class={`grid-item ${item.subsub_category}`} key={item.slug}>
           <a href={`/products/${item.slug}`}>
-            <h3 class="h3">{item.brand_front}</h3>
+            <img class="image" src={item.image} alt="Produktskud" />
           </a>
-          <h4 class="h4">{item.price}</h4>
+          <div class="item-info">
+            <a href={`/products/${item.slug}`}>
+              <h3 class="h3">{item.brand_front}</h3>
+            </a>
+            <h4 class="h4">{item.price}</h4>
+          </div>
         </div>
-      </div>
-    ))}
+      ))
+    }
   </section>
 </Mainlayout>
 
-
 <style>
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 20px;
-  padding-bottom: 20px;
-}
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+    padding-bottom: 20px;
+  }
 
-.grid-item {
-  text-align: center;
-  padding: 20px;
-  background-color: var--(background-color);
-}
+  .grid-item {
+    text-align: center;
+    padding: 20px;
+    background-color: var--(background-color);
+  }
 
-.image {
-  width: 100%;
-  height: 550px; 
-  object-fit: cover;
-  display: block;
-}
+  .image {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    display: block;
+  }
 
-.item-info {
-  padding: 10px;
-  text-align: center;
-}
+  .item-info {
+    padding: 10px;
+    text-align: center;
+  }
 
-.h4 {
-  font-family: var(--font-family-light);
-  font-weight: 100 !important;
-}
+  .h4 {
+    font-family: var(--font-family-light);
+    font-weight: 100 !important;
+  }
 
-.h3 {
-  font-weight: 300 !important;
-  font-family: var(--font-family-roman);
-}
-.filterbutton:hover {
-  cursor:pointer;
-}
-.filter {
+  .h3 {
+    font-weight: 300 !important;
+    font-family: var(--font-family-roman);
+  }
+  .filterbutton:hover {
+    cursor: pointer;
+  }
+  .filter {
     padding: 10px 20px;
     letter-spacing: 4px;
     text-decoration: none;
@@ -150,30 +163,27 @@ export function filterArticles(category) {
     color: var(--cta-text);
   }
 
+  @media only screen and (max-width: 767px) {
+    .image {
+      width: 100%;
+      height: auto;
+    }
 
-@media only screen and (max-width: 767px) {
-  .image {
-    width: 100%;
-    height: auto;
+    .filterbutton:hover {
+      cursor: pointer;
+    }
+
+    .filterbutton {
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      text-decoration: none;
+      font-size: 15px;
+      overflow: hidden;
+      transition: 0.2s;
+      margin: 5px 0;
+    }
   }
-
-  .filterbutton:hover {
-  cursor:pointer;
-}
-
-
-  .filterbutton {
-    
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 15px;
-    overflow: hidden;
-    transition: 0.2s;
-    margin: 5px 0;
-  }
-}
 </style>
