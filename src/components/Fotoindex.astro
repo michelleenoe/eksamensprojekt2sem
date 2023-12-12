@@ -1,5 +1,5 @@
 
-<section>
+<section class="section1">
     <div class="instagram-section">
       <h3>FØLG OS PÅ <a href="https://www.instagram.com">INSTAGRAM</a></h3>
       <!-- https://developers.facebook.com/docs/instagram-basic-display-api -->
@@ -34,43 +34,76 @@
   </section>
 
   <style>
+
+    .section1 {
+      padding-top:200px;
+    }
 .image-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 10px;
-  max-width: 800px;
-  margin: 0 auto; 
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
+
 a {
-    color:var(--cta-text);
-    text-decoration: underline;
+  color: var(--cta-text);
 }
-  .grid-item {
 
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
+a:hover {
+  color: var(--cta-text);
+  text-decoration: underline;
+}
+
+.grid-item {
+  width: 100%;
+  height: 300px; 
+  overflow: hidden;
+  position: relative;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grid-item p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--secondary-color);
+  padding: 10px;
+  font-weight: 500;
+  font-size: 18px; 
+  transition: color 0.3s ease;
+}
+
+.grid-item:hover p {
+  color: var(--cta-text);
+  text-decoration: underline;
+}
+
+.instagram-section {
+  margin: 0 auto;
+  padding-bottom: 20px;
+  max-width: 1200px;
+}
+
+@media only screen and (max-width: 768px) {
+  .image-grid {
+    display: none;
   }
-  
-  .grid-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  .section1 {
+      padding-top:20px;
+    }
+
   .instagram-section {
-    margin: 0 auto; 
-    max-width: 800px;
+    display: none;
   }
+}
 
-  @media only screen and (max-width: 768px) {
-
-    .image-grid {
-        display:none;
-    }
-
-    .instagram-section {
-        display: none;
-    }
-  }
 </style>
