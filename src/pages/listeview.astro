@@ -2,7 +2,7 @@
 import Mainlayout from "../layouts/Mainlayout.astro";
 
 const data = await fetch(
-  "https://uiovvvgmjftrkbiogyqx.supabase.co/rest/v1/products",
+  "https://uiovvvgmjftrkbiogyqx.supabase.co/rest/v1/products?order=brand_front.asc",
   {
     method: "GET",
     headers: {
@@ -11,78 +11,38 @@ const data = await fetch(
     },
   }
 ).then((res) => res.json());
-
-export function filterArticles(category) {
-  data.forEach((item) => {
-    if (category === "top" || item.subsub_category === category) {
-    }
-  });
-
-  console.log("Filtering articles by category:", category);
-  const articlesContainer = document.getElementById("articles-container");
-  const filterButtons = document.querySelectorAll(".filterbutton");
-  let activeButton = document.querySelector(".filterbutton.active");
-
-  if (activeButton) {
-    activeButton.classList.remove("active");
-  }
-
-  articlesContainer.innerHTML = "";
-
-  data.forEach((item) => {
-    if (category === "top" || item.subsub_category === category) {
-      const articleElement = document.createElement("div");
-      articleElement.classList.add("grid-item", item.subsub_category);
-      articleElement.innerHTML = `
-        <a href="/products/${item.slug}">
-          <img class="image" src="${item.image}" alt="Produktskud" />
-        </a>
-        <div class="item-info">
-          <a href="/products/${item.slug}">
-            <h3 class="h3">${item.brand_front}</h3>
-          </a>
-          <h4 class="h4">${item.price}</h4>
-        </div>
-      `;
-      articlesContainer.appendChild(articleElement);
-    }
-  });
-
-  const clickedButton = Array.from(filterButtons).find(
-    (button) => button.dataset.filter === category
-  );
-  if (clickedButton) {
-    activeButton = clickedButton;
-    activeButton.classList.add("active");
-  }
-}
 ---
 
 <Mainlayout title="SHOP">
   <div class="filter">
     <a
+    class="filterbutton active"
+    data-filter="all"
+    >All</a
+  > 
+  <span class="separator">|</span>
+    <a
       class="filterbutton active"
       data-filter="top"
-      on:click={() => filterArticles("top")}>Top</a
-    >
+      >Top</a
+    > 
     <span class="separator">|</span>
     <a
       class="filterbutton"
       data-filter="bottom"
-      on:click={() => filterArticles("bottom")}>Bottom</a
-    >
+      >Bottom</a
+    > 
     <span class="separator">|</span>
     <a
       class="filterbutton"
-      data-filter="accessories"
-      on:click={() => filterArticles("accessories")}>Accessories</a
-    >
+      data-filter="accessories">Accessories</a
+    > 
   </div>
 
   <section class="grid-container" id="articles-container">
     {
       data.map((item) => (
-        <div class={`grid-item ${item.subsub_category}`} key={item.slug}>
+        <article class={`grid-item ${item.subsub_category}`} data-category={item.subsub_category}>
           <a href={`/products/${item.slug}`}>
             <img class="image" src={item.image} alt="Produktskud" />
           </a>
@@ -92,19 +52,41 @@ export function filterArticles(category) {
             </a>
             <h4 class="h4">{item.price}</h4>
           </div>
-        </div>
+        </article>
       ))
     }
   </section>
 </Mainlayout>
 
+<script>
+  const btns = document.querySelectorAll(".filterbutton");
+  btns.forEach(btn=>{
+    btn.addEventListener("click", ()=>filterBy(btn.dataset.filter));
+  })
+  
+  function filterBy(cat){
+    console.log(cat)
+    document.querySelectorAll("article.grid-item").forEach(art=>{
+      if(art.dataset.category===cat || cat==="all"){
+        //vises
+        art.classList.remove("hide")
+      } else {
+        //skjules
+        art.classList.add("hide")
+      }
+    })
+  }
+</script>
 <style>
+  .hide {
+    display:none;
+  }
+  
   .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
     gap: 10px;
     padding-bottom: 100px;
-  
   }
 
   .grid-item {
