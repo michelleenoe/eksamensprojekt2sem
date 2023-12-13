@@ -47,12 +47,28 @@ console.log("myData");
 
       <div class="text-container" id="sticky-text-container">
         <h1>{myData.brand_front}</h1>
-        <h2>{myData.price}</h2>
+        <h2>{myData.price}</h2> 
         <div class="btn-container">
-          <button class="btn"><p>SHOP</p></button>
-        </div>
+          <!-- 
+            Tjek om produktet er udsolgt (soldout_1 === 'soldout').
+            Hvis ikke udsolgt, vis knappen.
+          -->
+          {myData.soldout_1 && (
+            <h4 class="soldout">
+              {myData.soldout_1.toLowerCase() === "soldout"
+                ? "Sold Out"
+                : myData.soldout_1}
+            </h4>
+          )}
+          
+          {myData.price && myData.price.toLowerCase() !== "soldout" && (
+            <button type="button" name="btn">
+              <p>KØB</p>
+            </button>
+          )}
+        </div>   
         <div class="info_copy">
-          <p>Flot tøj fra fra brand.</p>
+          <p>Flot tøj fra brand.</p>
         </div>
         <div class="info">
           <h3>STØRRELSE: {myData.size}</h3>
@@ -71,12 +87,8 @@ console.log("myData");
       </div>
     </div>
 
-    <div class="dots-container">
-      {myData.images.map((_, index) => (
-        <a href={`#image-${index + 1}`} key={index}>
-          ●
-        </a>
-      ))}
+  
+    
     </div>
   </section>
 
