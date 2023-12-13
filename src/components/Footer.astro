@@ -28,36 +28,25 @@
     <p> <a href="mailto:info@firstclass.dk">info@firstclass.dk</a></p>
 
   </div>
-  <!-- <form>
-    <h3>SEND EN MAIL</h3>
-    <label for="email"></label>
-    <input type="email" id="email" name="email" placeholder="MAIL" required />
-
-    <label for="name">Navn</label>
-    <input type="text" id="name" name="name" placeholder="NAVN" required />
-
-    <label for="message">Besked</label>
-    <textarea id="message" name="message" rows="4" placeholder="BESKED" required
-    ></textarea>
-
-    <button type="submit">SEND</button>
-  </form> -->
-
-
-    <div class="copyright">
+    <!-- <div class="copyright">
         <p>©2023 by First Class Second Hand</p>
-          </div>
+          </div> -->
       </footer>
 <style>
   footer {
-    padding-left:10px;
-    padding-right:10px;
     background-color: var(--primary-text);
     color: var(--secondary-color);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     margin-top: 20px;
+padding-bottom:40px;
+    margin-left: auto;
+    
   }
+
+  .logo {
+      padding-left: 90px;
+    }
   footer a {
     text-decoration: none;
     color: #fff;
@@ -76,57 +65,19 @@
     justify-content: space-between;
   }
 
-  /* form label {
-    display: none;
-  }
-
-  form input,
-  form textarea {
-    width: 100%;
-    padding: 8px;
-    border: 0;
-    background-color: transparent;
-    border-bottom: 2px solid #fff;
-    color: var(--secondary-color);
-    outline: none;
-    font-family: var(--font-family);
-    font-size: 14px;
-  }
-
-  form {
-    padding-right: 40px;
-  } */
+ 
   .contact p, .øvrige p, .åbningstider p  {
     line-height: 2;
   }
-  .copyright p {
+  /* .copyright p {
     display: flex;
     span:4;
     padding-bottom: 20px;
     text-align: center;
     background-color: var(--primary-text);
     color: var(--secondary-color);
-  }
-
-  /* form button {
-    font-family: var(--font-family);
-    font-size: 14px;
-    color: #fff;
-    background-color: rgba(50, 50, 70, 0.167);
-    padding: 2px 10px;
-    border: none;
-    transition: 345ms;
-    display: flex;
-    flex-direction: row;
-    cursor: pointer;
-  }
-  form button:hover {
-    transition: 345ms;
-    padding: 3px 15px;
-    transform: translateY(-0px);
-    background-color: var(--cta-text);
-    border: none;
   } */
+
 
   @media screen and (max-width: 600px) {
     footer,
@@ -146,15 +97,5 @@
   }
  
 }
-    /* form {
-      text-align: center;
-      scale: 90%;
-      padding: 10px;
-    } */
-  
-  /* form {
-    margin-bottom: 40px;
-  } */
-
 
 </style>
