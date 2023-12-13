@@ -28,34 +28,22 @@ export async function getStaticPaths() {
 const { myData } = Astro.props;
 console.log("myData");
 ---
-
-<Mainlayout title={myData.brand}>
-  <section>
+<Mainlayout title={myData.brand}></>
+  <section class="product-section">
     <a class="backbtn" href="/listeview/">
-      <svg
-        width="40"
-        height="32"
-        viewBox="0 0 40 32"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M4.93934 10.9393C4.35355 11.5251 4.35355 12.4749 4.93934 13.0607L14.4853 22.6066C15.0711 23.1924 16.0208 23.1924 16.6066 22.6066C17.1924 22.0208 17.1924 21.0711 16.6066 20.4853L8.12132 12L16.6066 3.51472C17.1924 2.92893 17.1924 1.97919 16.6066 1.3934C16.0208 0.807614 15.0711 0.807614 14.4853 1.3934L4.93934 10.9393ZM36 10.5L6 10.5L6 13.5L36 13.5L36 10.5Z"
-          fill="#7A1C44"></path>
+      <svg width="40" height="32" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4.93934 10.9393C4.35355 11.5251 4.35355 12.4749 4.93934 13.0607L14.4853 22.6066C15.0711 23.1924 16.0208 23.1924 16.6066 22.6066C17.1924 22.0208 17.1924 21.0711 16.6066 20.4853L8.12132 12L16.6066 3.51472C17.1924 2.92893 17.1924 1.97919 16.6066 1.3934C16.0208 0.807614 15.0711 0.807614 14.4853 1.3934L4.93934 10.9393ZM36 10.5L6 10.5L6 13.5L36 13.5L36 10.5Z" fill="#7A1C44"></path>
       </svg>
     </a>
-  </section>
 
-  <section class="product-section">
-    <div class="image-container">
-      {
-        myData.images.map((image, index) => (
+    <div class="container">
+      <div class="image-container">
+        {myData.images.map((image, index) => (
           <div id={`image-${index + 1}`} key={index}>
             <img src={image} alt="" />
           </div>
-        ))
-      }
-    </div>
+        ))}
+      </div>
 
       <div class="text-container" id="sticky-text-container">
         <h1>{myData.brand_front}</h1>
@@ -82,6 +70,14 @@ console.log("myData");
         </div>
       </div>
     </div>
+
+    <div class="dots-container">
+      {myData.images.map((_, index) => (
+        <a href={`#image-${index + 1}`} key={index}>
+          ●
+        </a>
+      ))}
+    </div>
   </section>
 
   <Insta />
@@ -95,10 +91,10 @@ console.log("myData");
     }
 
     h2 {
-      font-family: var(--font-family-roman);
+      font-family: var(--font-family-light);
       font-size: 25px;
-      
-
+      padding-bottom: 20px;
+      font-weight: 100;
     }
 
     p {
@@ -198,11 +194,6 @@ console.log("myData");
       color: var(--cta-text);
       font-size: 16px;
     }
-    .cta {
-        color:var(--cta-text);
-        font-family: var(--font-family-bold);
-        font-size: 20px;
-      }
 
     .info,
     .model {
@@ -259,28 +250,6 @@ margin-bottom: 40px;
       img {
         width: 100%;
         height: auto;
-      }
-
-      .dots-container {
-        display: flex;
-        position: relative;
-        bottom: 50%;
-        left: 200px;
-      }
-      .info,
-      .model {
-        line-height: 2rem;
-        text-align: left;
-        padding: 0;
-      }
-
-      .product-section {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr;
-      }
-      .vintage-text {
-        border: none;
         padding-bottom: 20px;
       }
   
@@ -311,4 +280,17 @@ margin-bottom: 40px;
   }
   </style>
 </Mainlayout>
+<script>
 
+  window.addEventListener('scroll', function () {
+    const textContainer = document.getElementById('sticky-text-container');
+    const scrollPosition = window.scrollY;
+
+    if (scrollPosition <= 10) {
+      textContainer.classList.add('sticky');
+    } else {
+      textContainer.classList.remove('sticky');
+    }
+  });
+
+  </script>
