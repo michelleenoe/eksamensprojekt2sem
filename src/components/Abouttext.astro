@@ -1,4 +1,6 @@
 <section>
+  <div class="container">
+    <div class="intro">
   <h2 class="h2">OM OS</h2>
   <p>
     First Class Second Hand er en secondhand butik beliggende i København med
@@ -16,7 +18,8 @@
     forlænge dets levetid og minimere spild af ressourcer. Og det bedste er, at
     du samtidig kan rydde op og tjene penge på det.
   </p>
-
+</div>
+</div>
   <div class="grid1-1">
     <div>
       <img src="/img/about/01.jpg" alt="Image 1" />
@@ -64,7 +67,7 @@
   section {
     padding: 2%;
     display: grid;
-    width: 60%;
+    width:60%;
     text-align: left;
     padding-bottom: 6rem;
     margin-left: 0px;
@@ -74,6 +77,7 @@
   p {
     margin-bottom: 15px;
     line-height: 1.5;
+    text-align: left;
   }
 
   .h2 {
@@ -81,6 +85,8 @@
     font-weight: 100 !important;
     font-size: 25px !important;
     line-height: 2;
+    text-align: center;
+
   }
 
   .h3 {
@@ -88,6 +94,7 @@
     font-weight: 100 !important;
     font-size: 25px !important;
     line-height: 2;
+    text-align: left;
   }
   a {
     text-decoration: underline;
@@ -96,22 +103,26 @@
     color: var(--cta-text);
   }
 
+  .container {
+    margin: 0 auto;
+  }
   @media only screen and (min-width: 769px) {
     .grid1-1 {
+      padding-top:105px;
       display: inline-flex;
       grid-template-columns: 1fr 1fr;
       gap: 100px;
     }
     .textbox {
       margin-top: 200px;
-    }
-    section {
-      margin-left: 250px;
       text-align: center;
     }
-
-    img {
-      scale: 80%;
+    section { 
+      margin:0 auto;
     }
+  .intro {
+  width: 700px;
+}
+   
   }
 </style>

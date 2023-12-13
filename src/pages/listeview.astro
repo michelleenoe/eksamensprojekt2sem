@@ -50,7 +50,7 @@ const data = await fetch(
             <a href={`/products/${item.slug}`}>
               <h3 class="h3">{item.brand_front}</h3>
             </a>
-            <h4 class="h4">{item.price}</h4>
+            <h4 class="h4">{item.price} </h4><h4 class="soldout">{item.soldout_1}</h4>
           </div>
         </article>
       ))
@@ -84,9 +84,10 @@ const data = await fetch(
   
   .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); 
     padding-bottom: 100px;
+    padding:20px;
+    gap:20px;
   }
 
   .grid-item {
@@ -97,9 +98,10 @@ const data = await fetch(
 
   .image {
     width: 100%;
-    height:550px;
+    height:850px;
     object-fit: cover;
     display: block;
+
   }
 
   .item-info {
@@ -145,7 +147,9 @@ cursor: pointer;
   .filterbutton.active {
     color: var(--cta-text);
   }
-
+.soldout {
+  color:var(--cta-text);
+}
   @media only screen and (max-width: 767px) {
     .image {
       width: 100%;
