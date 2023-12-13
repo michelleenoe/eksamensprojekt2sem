@@ -60,7 +60,7 @@ console.log("myData");
 
     <div class="text-container">
       <h1>{myData.brand}</h1>
-      <h2>{myData.price}</h2>
+      <h2>{myData.price} <h2 class="cta">{myData.soldout_1}</h2>
       <div class="info_copy">
         <p>her står der en dejlig copy om tøjet mhh</p>
       </div>
@@ -96,16 +96,15 @@ console.log("myData");
 
   <style>
     h1 {
-      font-family: var(--font-family-roman);
-      font-size: 30px;
-      font-weight: 100;
+      font-family: var(--font-family-bold);
+      font-size: 30px;s
     }
 
     h2 {
-      font-family: var(--font-family-light);
+      font-family: var(--font-family-roman);
       font-size: 25px;
       padding-bottom: 20px;
-      font-weight: 100;
+
     }
 
     p {
@@ -311,6 +310,9 @@ console.log("myData");
         display: flex;
         justify-content: left;
         margin-top: 20px;
+      }
+      .cta {
+        color:var(--cta-text);
       }
     }
   </style>
