@@ -1,68 +1,97 @@
 
-<section>
-    <div class="instagram-section">
-      <h3>FØLG OS PÅ <a href="https://www.instagram.com">INSTAGRAM</a></h3>
-      <!-- https://developers.facebook.com/docs/instagram-basic-display-api -->
-    </div>
-  </section>
+<section class="section1">
+  <div class="instagram-section">
+    <h3>FØLG OS PÅ <a href="https://www.instagram.com">INSTAGRAM</a></h3>
+    <!-- https://developers.facebook.com/docs/instagram-basic-display-api -->
+  </div>
+</section>
 <section class="image-grid">
 
-    <div class="grid-item">
-      <img src="/public/img/insta/beige-side2.webp" alt="Billede 1">
-    </div>
-    <div class="grid-item">
-      <img src="/public/img/insta/fur_side.webp" alt="Billede 2">
-    </div>
-    <div class="grid-item">
-      <img src="/public/img/insta/fur-side.webp" alt="Billede 3">
-    </div>
-    <div class="grid-item">
-      <img src="/public/img/insta/leo_wall.webp" alt="Billede 4">
-    </div>
-  </section>
+  <div class="grid-item">
+    <img src="/public/img/insta/beige-side2.webp" alt="Billede 1">
+  </div>
+ 
+  <div class="grid-item">
+    <img src="/public/img/insta/louis_front1.webp" alt="Billede 5">
+  </div>
+  <div class="grid-item">
+    <img src="public/img/insta/stiletter-2.webp" alt="Billede 7">
+  </div>
+  <div class="grid-item">
+    <img src="/public/img/insta/shorts-back1.webp" alt="Billede 8">
+  </div>
+</section>
 
   <style>
 
+    .section1 {
+      padding-top:200px;
+    }
 .image-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  max-width: 800px;
-  margin: 0 auto; 
-  padding-bottom:20px;
-
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-  .grid-item {
 
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
-  }
-  
-  .grid-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .instagram-section {
-    margin: 0 auto; 
-    max-width: 800px;
-        padding-top:150px;
-    }
-  
 a {
-    color:var(--cta-text);
-    text-decoration: underline;
+  color: var(--cta-text);
 }
 
-  @media only screen and (max-width: 768px) {
+a:hover {
+  color: var(--cta-text);
+  text-decoration: underline;
+}
 
-    .image-grid {
-        display:none;
-    }
+.grid-item {
+  width: 100%;
+  height: 300px; 
+  overflow: hidden;
+  position: relative;
+}
 
-    .instagram-section {
-        display: none;
-    }
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grid-item p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--secondary-color);
+  padding: 10px;
+  font-weight: 500;
+  font-size: 18px; 
+  transition: color 0.3s ease;
+}
+
+.grid-item:hover p {
+  color: var(--cta-text);
+  text-decoration: underline;
+}
+
+.instagram-section {
+  margin: 0 auto;
+  padding-bottom: 20px;
+  max-width: 1200px;
+}
+
+@media only screen and (max-width: 768px) {
+  .image-grid {
+    display: none;
   }
+  .section1 {
+      padding-top:20px;
+    }
+
+  .instagram-section {
+    display: none;
+  }
+}
+
 </style>
