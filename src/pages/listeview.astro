@@ -46,12 +46,18 @@ const data = await fetch(
           <a href={`/products/${item.slug}`}>
             <img class="image" src={item.image} alt="Produktskud" />
           </a>
-          <div class="item-info">
-            <a href={`/products/${item.slug}`}>
-              <h3 class="h3">{item.brand_front}</h3>
-            </a>
-            <h4 class="h4">{item.price} </h4><h4 class="soldout">{item.soldout_1}</h4>
-          </div>
+           <div class="item-info">
+        <a href={`/products/${item.slug}`}>
+          <h3 class="h3">{item.brand_front}</h3>
+        </a>
+        <h4 class="h4">{item.price} </h4>
+        {item.soldout_1 && (
+    <h4 class="soldout">{item.soldout_1.toLowerCase() === 'soldout' ? 'Sold Out' : item.soldout_1}</h4>
+  )}
+  {item.price && item.price.toLowerCase() !== 'soldout' && (
+    <button type="button" name="btn"><p>KØB</p></button>
+  )}
+</div>
         </article>
       ))
     }
@@ -78,6 +84,24 @@ const data = await fetch(
   }
 </script>
 <style>
+
+button {
+			color: #ffffff;
+			background-color: var(--cta-text);
+			font-size: 16px;
+			border: none;
+			padding: 2px 35px;
+			cursor: pointer
+		}
+
+   .btn p {
+      font-family: var(--font-family-roman);
+    }
+		button:hover {
+			color: var(--cta-text);
+			background-color: transparent;
+      border: 1px solid #7A1C44;
+		}
   .hide {
     display:none;
   }
@@ -174,4 +198,3 @@ cursor: pointer;
     }
   }
 </style>
-
