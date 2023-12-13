@@ -46,26 +46,26 @@ console.log("myData");
       </div>
 
       <div class="text-container" id="sticky-text-container">
-        <h1>{myData.brand}</h1>
+        <h1>{myData.brand_front}</h1>
         <h2>{myData.price}</h2>
-        <div class="info_copy">
-          <p>her står der en dejlig copy om tøjet mhh</p>
-        </div>
         <div class="btn-container">
           <button class="btn"><p>SHOP</p></button>
         </div>
+        <div class="info_copy">
+          <p>Flot tøj fra fra brand.</p>
+        </div>
         <div class="info">
-          <h3><strong>STØRRELSE:</strong> {myData.size}</h3>
-          <h3><strong>BRAND:</strong> {myData.brand}</h3>
-          <h3><strong>MATERIALE:</strong> {myData.material}</h3>
-          <h3><strong>STAND:</strong> {myData.condition}</h3>
+          <h3>STØRRELSE: {myData.size}</h3>
+          <h3>MÆRKE: {myData.brand}</h3>
+          <h3>MATERIALE: {myData.material}</h3>
+          <h3>STAND: {myData.condition}</h3>
         </div>
         <div class="model">
           <p><strong>MODEL</strong></p>
-          <p><strong>HØJDE:</strong>180cm</p>
-          <p><strong>STØRRELSE:</strong>XS - S</p>
+          <p>HØJDE: 180cm</p>
+          <p>STØRRELSE: XS - S</p>
           <div class="vintage-text">
-            <p><em>Vintage and secondhand items may come with minor flaws due to pre-loved wear.</em></p>
+            <p><em>Secondhand varer kan have små fejl / patina på grund af tidligere liv hos tidligere ejere.</em></p>
           </div>
         </div>
       </div>
@@ -85,7 +85,7 @@ console.log("myData");
 
   <style>
     h1 {
-      font-family: var(--font-family-roman);
+      font-family: var(--font-family-medium);
       font-size: 30px;
       font-weight: 100;
     }
@@ -116,10 +116,10 @@ console.log("myData");
     }
 
     .btn {
-      font-size: 15px;
+      font-size: 18px;
       color: var(--secondary-color);
       background-color: var(--cta-text);
-      padding: 15px 100px;
+      padding: 10px 110px;
       border: none;
       display: flex;
       flex-direction: column;
@@ -133,12 +133,7 @@ console.log("myData");
       padding-bottom: 30px;
     }
 
-    .btn:hover {
-      transition: 0.52s;
-      background-color: transparent;
-      color: var(--cta-text);
-      border: solid 0.5px var(--cta-text);
-    }
+
 
     svg {
       display: block;
@@ -213,14 +208,13 @@ console.log("myData");
     }
     @media only screen and (min-width: 768px) {
       .product-section {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
+       margin-top: 150px;
       }
 
       .container {
-        display: flex;
-      flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+  gap: 100px;
       }
 
       .image-container {
@@ -229,28 +223,61 @@ console.log("myData");
       scrollbar-width: thin;
       padding: 10px;
       width: 100%; 
+      flex: 1;
     }
-
-
+    .btn:hover {
+      transition: 0.1s;
+      background-color: transparent;
+      color: var(--cta-text);
+      border: solid 2px var(--cta-text);
+    }
+    .btn-container{
+      justify-content: start;
+    }
+    .info_copy p {
+margin-top: 18px;
+margin-bottom: 40px;
+      text-align: start;
+      padding: 0;
+    }
+    h1{
+      padding-bottom: 10px;
+  
+    }
+    h2{
+      padding-bottom: 30px;
+    }
       img {
         width: 100%;
         height: auto;
         padding-bottom: 20px;
       }
-
+  
       .text-container {
       text-align: left;
-
-      position: sticky;
-      top: 0;
+      flex: 1;
+  position: sticky;
+  top: 0;
       padding: 20px;
       box-sizing: border-box;
     }
-
-   
-    .text-container.sticky {
-      position: fixed;
+    .info,
+    .model {
+      padding-top:100px;
+      line-height: 2rem;
+      text-align: left;
+      padding: 0px;
     }
+
+.info{
+  padding-bottom: 50px;
+  padding-top: 5rem;
+}
+.vintage-text{
+  padding-top: 65px;
+  padding-bottom: 30px;
+}
+  }
   </style>
 </Mainlayout>
 <script>
