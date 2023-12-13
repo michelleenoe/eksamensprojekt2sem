@@ -219,19 +219,18 @@ console.log("myData");
       }
 
       .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        position: relative;
-        width: 100%; 
+        display: flex;
+      flex-direction: column;
       }
 
       .image-container {
-        overflow-y: auto;
-        max-height: auto;
-        scrollbar-width: thin;
-        padding: 10px;
-      }
+      overflow-y: auto;
+      max-height: 100vh;
+      scrollbar-width: thin;
+      padding: 10px;
+      width: 100%; 
+    }
+
 
       img {
         width: 100%;
@@ -240,22 +239,17 @@ console.log("myData");
       }
 
       .text-container {
-        text-align: left;
-        position: sticky;
-        top: 150px;
-        z-index: 100;
-        width: 30%;
-        padding: 20px;
-        box-sizing: border-box;
-      }
+      text-align: left;
 
-      .text-container.sticky {
-        position: fixed;
-        top: 0;
-        width: 30%;
-        padding: 20px;
-        box-sizing: border-box;
-      }
+      position: sticky;
+      top: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+   
+    .text-container.sticky {
+      position: fixed;
     }
   </style>
 </Mainlayout>
@@ -265,7 +259,7 @@ console.log("myData");
     const textContainer = document.getElementById('sticky-text-container');
     const scrollPosition = window.scrollY;
 
-    if (scrollPosition >= 10) {
+    if (scrollPosition <= 10) {
       textContainer.classList.add('sticky');
     } else {
       textContainer.classList.remove('sticky');
