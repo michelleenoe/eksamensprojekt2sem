@@ -62,7 +62,7 @@ console.log("myData");
           )}
           
           {myData.price && myData.price.toLowerCase() !== "soldout" && (
-            <button type="button" name="btn">
+            <button className="btn" type ="button" name="btn">
               <p>KØB</p>
             </button>
           )}
@@ -127,7 +127,7 @@ console.log("myData");
       font-weight: 100;
     }
 
-    .btn {
+    button {
       font-size: 18px;
       color: var(--secondary-color);
       background-color: var(--cta-text);
@@ -143,7 +143,7 @@ console.log("myData");
       font-size: 20px;
 
     }
-    .btn-container {
+    .button-container {
       display: flex;
       justify-content: center;
       margin-top: 20px;
@@ -242,13 +242,13 @@ console.log("myData");
       width: 100%; 
       flex: 1;
     }
-    .btn:hover {
+    button:hover {
       transition: 0.1s;
       background-color: transparent;
       color: var(--cta-text);
       border: solid 2px var(--cta-text);
     }
-    .btn-container{
+    .button-container{
       justify-content: start;
       margin-top: 30px;
     }
