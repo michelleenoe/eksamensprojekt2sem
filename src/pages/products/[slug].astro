@@ -214,14 +214,14 @@ console.log("myData");
       .container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-  gap: 100px;
+  gap: 80px;
+  max-width: 1000px;
       }
 
       .image-container {
       overflow-y: auto;
       max-height: 100vh;
       scrollbar-width: thin;
-      padding: 10px;
       width: 100%; 
       flex: 1;
     }
@@ -233,6 +233,7 @@ console.log("myData");
     }
     .btn-container{
       justify-content: start;
+      margin-top: 30px;
     }
     .info_copy p {
 margin-top: 18px;
@@ -248,7 +249,7 @@ margin-bottom: 40px;
       padding-bottom: 30px;
     }
       img {
-        width: 100%;
+        width: 90%;
         height: auto;
         padding-bottom: 20px;
       }
@@ -258,24 +259,31 @@ margin-bottom: 40px;
       flex: 1;
       position: sticky;
       top: 0;
-      padding: 20px;
+
       box-sizing: border-box;
     }
     .info,
     .model {
-      padding-top:100px;
       line-height: 2rem;
       text-align: left;
       padding: 0px;
     }
+p{
 
+  font-size: 15px;
+}
 .info{
   padding-bottom: 50px;
-  padding-top: 5rem;
+  padding-top: 1rem;
 }
 .vintage-text{
-  padding-top: 65px;
+  padding-top: 0px;
   padding-bottom: 30px;
+  text-align: left;
+}
+.vintage-text p{
+  text-align: left;
+  font-size: 13.5px;
 }
   }
   </style>

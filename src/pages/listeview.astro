@@ -1,4 +1,5 @@
 ---
+import "/src/css/general.css";
 import Mainlayout from "../layouts/Mainlayout.astro";
 
 const data = await fetch(
@@ -48,7 +49,7 @@ const data = await fetch(
             )}
             {item.price && item.price.toLowerCase() !== "soldout" && (
               <button type="button" name="btn">
-                <p>KØB</p>
+                <p>SHOP</p>
               </button>
             )}
           </div>
@@ -80,15 +81,15 @@ const data = await fetch(
 
 <style>
 
-
   /* knap */
   button {
     color: #ffffff;
     background-color: var(--cta-text);
     font-size: 16px;
     border: none;
-    padding: 2px 35px;
+    padding: 2px 50px;
     cursor: pointer;
+    margin-top: 10px;
   }
 
   .btn p {
@@ -109,6 +110,7 @@ const data = await fetch(
   .item-info {
     padding: 10px;
     text-align: center;
+padding-bottom: 30px;
   }
 
   .h4 {
@@ -130,7 +132,6 @@ const data = await fetch(
     margin: 5px 0;
     display: flex;
     justify-content: center;
-    letter-spacing: 1.6px;
     cursor: pointer;
   }
 
@@ -148,9 +149,8 @@ const data = await fetch(
 
   .image {
     width: 100%;
-    height: auto; s
-    display: block;
-  }
+        height: auto;
+      scale: 100%;}
 
 
   /* filter active () - skal implementeres i koden hvis det er need to*/
@@ -163,6 +163,7 @@ const data = await fetch(
 
   .soldout {
     color: var(--cta-text);
+    font-family: var(--font-family-medium);
   }
   .filterbutton:hover {
     cursor: pointer;
@@ -172,30 +173,38 @@ const data = await fetch(
     position: relative;
     display: inline-block;
     text-transform: uppercase;
-    letter-spacing: 1.6px;
     text-decoration: none;
     font-size: 13px;
     overflow: hidden;
+    letter-spacing: 1.5px;
   }
 
   @media screen and (min-width: 767px) {
     .image {
+      scale: 95%;
+      height: 85%;
       width: 100%;
-      height: 850px;
     }
     .grid-container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       padding-bottom: 100px;
-      padding: 20px;
-      gap: 20px;
+      gap: 50px;
+      margin: 0 auto;
+      max-width: 1200px;
     }
     .filterbutton {
       padding: 10px;
-      letter-spacing: 4px;
       font-size: 15px;
       transition: 0.2s;
       margin: 5px 0;
     }
+.item-info{
+margin-top: -20px;
+}
+.filterbutton{
+  letter-spacing: 0;
+}
+
   }
 </style>
