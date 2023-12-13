@@ -15,49 +15,43 @@ const data = await fetch(
 
 <Mainlayout title="SHOP">
   <div class="filter">
-    <a
-    class="filterbutton active"
-    data-filter="all"
-    >All</a
-  > 
-  <span class="separator">|</span>
-    <a
-      class="filterbutton active"
-      data-filter="top"
-      >Top</a
-    > 
+    <a class="filterbutton active" data-filter="all">All</a>
     <span class="separator">|</span>
-    <a
-      class="filterbutton"
-      data-filter="bottom"
-      >Bottom</a
-    > 
+    <a class="filterbutton active" data-filter="top">Top</a>
     <span class="separator">|</span>
-    <a
-      class="filterbutton"
-      data-filter="accessories">Accessories</a
-    > 
+    <a class="filterbutton" data-filter="bottom">Bottom</a>
+    <span class="separator">|</span>
+    <a class="filterbutton" data-filter="accessories">Accessories</a>
   </div>
 
   <section class="grid-container" id="articles-container">
     {
       data.map((item) => (
-        <article class={`grid-item ${item.subsub_category}`} data-category={item.subsub_category}>
+        <article
+          class={`grid-item ${item.subsub_category}`}
+          data-category={item.subsub_category}
+        >
           <a href={`/products/${item.slug}`}>
             <img class="image" src={item.image} alt="Produktskud" />
           </a>
-           <div class="item-info">
-        <a href={`/products/${item.slug}`}>
-          <h3 class="h3">{item.brand_front}</h3>
-        </a>
-        <h4 class="h4">{item.price} </h4>
-        {item.soldout_1 && (
-    <h4 class="soldout">{item.soldout_1.toLowerCase() === 'soldout' ? 'Sold Out' : item.soldout_1}</h4>
-  )}
-  {item.price && item.price.toLowerCase() !== 'soldout' && (
-    <button type="button" name="btn"><p>KØB</p></button>
-  )}
-</div>
+          <div class="item-info">
+            <a href={`/products/${item.slug}`}>
+              <h3 class="h3">{item.brand_front}</h3>
+            </a>
+            <h4 class="h4">{item.price} </h4>
+            {item.soldout_1 && (
+              <h4 class="soldout">
+                {item.soldout_1.toLowerCase() === "soldout"
+                  ? "Sold Out"
+                  : item.soldout_1}
+              </h4>
+            )}
+            {item.price && item.price.toLowerCase() !== "soldout" && (
+              <button type="button" name="btn">
+                <p>KØB</p>
+              </button>
+            )}
+          </div>
         </article>
       ))
     }
@@ -66,68 +60,52 @@ const data = await fetch(
 
 <script>
   const btns = document.querySelectorAll(".filterbutton");
-  btns.forEach(btn=>{
-    btn.addEventListener("click", ()=>filterBy(btn.dataset.filter));
-  })
-  
-  function filterBy(cat){
-    console.log(cat)
-    document.querySelectorAll("article.grid-item").forEach(art=>{
-      if(art.dataset.category===cat || cat==="all"){
+  btns.forEach((btn) => {
+    btn.addEventListener("click", () => filterBy(btn.dataset.filter));
+  });
+
+  function filterBy(cat) {
+    console.log(cat);
+    document.querySelectorAll("article.grid-item").forEach((art) => {
+      if (art.dataset.category === cat || cat === "all") {
         //vises
-        art.classList.remove("hide")
+        art.classList.remove("hide");
       } else {
         //skjules
-        art.classList.add("hide")
+        art.classList.add("hide");
       }
-    })
+    });
   }
 </script>
+
 <style>
 
-button {
-			color: #ffffff;
-			background-color: var(--cta-text);
-			font-size: 16px;
-			border: none;
-			padding: 2px 35px;
-			cursor: pointer
-		}
 
-   .btn p {
-      font-family: var(--font-family-roman);
-    }
-		button:hover {
-			color: var(--cta-text);
-			background-color: transparent;
-      border: 1px solid #7A1C44;
-		}
+  /* knap */
+  button {
+    color: #ffffff;
+    background-color: var(--cta-text);
+    font-size: 16px;
+    border: none;
+    padding: 2px 35px;
+    cursor: pointer;
+  }
+
+  .btn p {
+    font-family: var(--font-family-roman);
+  }
+  button:hover {
+    color: var(--cta-text);
+    background-color: transparent;
+    border: 1px solid #7a1c44;
+  }
+
+  /* id til javascript */
   .hide {
-    display:none;
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); 
-    padding-bottom: 100px;
-    padding:20px;
-    gap:20px;
+    display: none;
   }
 
-  .grid-item {
-    text-align: center;
-    padding: 10px;
-    background-color: var(--background-color);
-  }
-
-  .image {
-    width: 100%;
-    height:850px;
-    object-fit: cover;
-    display: block;
-
-  }
-
+  /* tekst - brand, pris  */
   .item-info {
     padding: 10px;
     text-align: center;
@@ -142,6 +120,7 @@ button {
     font-family: var(--font-family-roman);
   }
 
+  /* filter mobil */
   .filter {
     display: flex;
     justify-content: space-around;
@@ -152,49 +131,71 @@ button {
     display: flex;
     justify-content: center;
     letter-spacing: 1.6px;
-cursor: pointer;
+    cursor: pointer;
+  }
+
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-bottom: 100px;
+  }
+  .grid-item {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--background-color);
+  }
+
+  .image {
+    width: 100%;
+    height: auto; s
+    display: block;
+  }
+
+
+  /* filter active () - skal implementeres i koden hvis det er need to*/
+
+  .filterbutton:active {
+    color: var(--cta-text);
+  }
+
+  /* styling på soldout - den ligger med en <p> rundt om som er span stylet i koden ^ */
+
+  .soldout {
+    color: var(--cta-text);
+  }
+  .filterbutton:hover {
+    cursor: pointer;
   }
 
   .filterbutton {
     position: relative;
     display: inline-block;
-    padding: 10px;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 1.6px;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 13px;
     overflow: hidden;
-    transition: 0.2s;
-    margin: 5px 0;
   }
 
-  .filterbutton.active {
-    color: var(--cta-text);
-  }
-.soldout {
-  color:var(--cta-text);
-}
-  @media only screen and (max-width: 767px) {
+  @media screen and (min-width: 767px) {
     .image {
       width: 100%;
-      height: 550px;
+      height: 850px;
     }
-
-    .filterbutton:hover {
-      cursor: pointer;
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+      padding-bottom: 100px;
+      padding: 20px;
+      gap: 20px;
     }
-
     .filterbutton {
-      position: relative;
-      display: inline-block;
-      text-transform: uppercase;
-      letter-spacing: 1.6px;
-      text-decoration: none;
-      font-size: 13px;
-      overflow: hidden;
-    }
-    .filter {
-      padding-top: 0px;
+      padding: 10px;
+      letter-spacing: 4px;
+      font-size: 15px;
+      transition: 0.2s;
+      margin: 5px 0;
     }
   }
 </style>
