@@ -46,8 +46,14 @@
         bliver det bliver solgt.
       </p>
     </div>
-  
+    <div class="image-container">
+      <div class="image-overlay2">
+        <h2 class="image-text">02</h2>
+      </div>
+      <img src="/img/about/02.jpg" alt="Image 2" />
+    </div>
   </div>
+
   <div class="grid1-1">
     <div class="image-container">
       <div class="image-overlay">
@@ -72,7 +78,7 @@
     padding-left:10px;
     padding-right:10px;
     display: grid;
-    /* width:450px; */
+    width:450px;
     text-align: left;
     padding-bottom: 6rem;
     margin-left: 0px;
@@ -115,48 +121,32 @@
     color: var(--cta-text);
   }
 
-  .grid1-1 img {
-    height:457px;
-  width:313px;
-  display: grid;
-  align-items: center;
-  padding:20px;
-  margin: 0 auto;
-
-  }
-  .image-text {
-    color:var(--cta-text);
-  }
-  .image-overlay 
-  {position: absolute;
+  .container {
+    margin: 0 auto;
   }
   @media only screen and (min-width: 769px) {
     .grid1-1 {
       padding-top:105px;
-      display: grid;
+      display: inline-flex;
       grid-template-columns: 1fr 1fr;
-      gap: 90px;
+      gap: 100px;
     }
     .textbox {
       margin-top: 200px;
       text-align: center;
-      max-width: 450px;
     }
-    section {
-    padding-left:50px;
-    padding-right:50px;
  
-    }
+  .intro {
+  width: 700px;
+}
 .image-container {
     position: relative;
-    text-align: center;
-
   }
 
   .image-overlay {
     position: absolute;
-    top: -95%;
-    right: 17%;
+    top: -100%;
+    right: -3%;
     bottom: 0;
     left: 0;
     display: flex;
@@ -167,9 +157,10 @@
   }
   .image-overlay2 {
     position: absolute;
-    top: -95%;
-    left: -8%;
+    top: -100%;
+    right: 75%;
     bottom: 0;
+    left: 0;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -178,10 +169,10 @@
   }
   section {
     display: grid;
-    max-width: 1200px;
+    width:60%;
     text-align: left;
     padding-bottom: 6rem;
-
+    margin-left: 0px;
     line-height: 1.6;
     margin:0 auto;
   }
@@ -190,35 +181,6 @@
     margin: 0;
     font-size: 65px;
   }
-  .grid1-1 img {
-    height:675px;
-  width:auto;
-  display: grid;
-  align-items: center;
-  padding:20px;
-
+   
   }
-   .grid1-1 {
-    height:auto;
-    width:auto;
-   }
-   .intro {
-    text-align: center;
-   }
-
-
-  .intro h2, .intro p{
-    text-align: center;
-
-  }
-  .intro {
-    padding-top:60px;
-  }
-  .container {
-  width: auto;
-  margin: 0 auto;
-  align-items: center;
-  }
-  }
-
 </style>
