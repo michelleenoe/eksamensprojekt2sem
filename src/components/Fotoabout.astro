@@ -1,31 +1,56 @@
 
 <section class="section1">
   <div class="instagram-section">
-    <h3>FØLG OS PÅ <a href="https://www.instagram.com">INSTAGRAM</a></h3>
-    <!-- https://developers.facebook.com/docs/instagram-basic-display-api -->
-  </div>
-</section>
+    <h3>FØLG OS PÅ <a href="https://www.instagram.com/emc181223/?fbclid=IwAR3LWAhNyl5szc3xrlw96V0fCq_BlTzlEnw8uUXo3AGCLjDtNI2GcB9Q01E">@firstclasssecondhand</a></h3>
 <section class="image-grid">
 
   <div class="grid-item">
-    <img src="/public/img/insta/beige-side2.webp" alt="Billede 1">
+    <img src="/public/img/insta/nye/insta1.png" alt="Billede 1">
   </div>
  
   <div class="grid-item">
-    <img src="/public/img/insta/louis_front1.webp" alt="Billede 5">
+    <img src="/public/img/insta/nye/insta2.png" alt="Billede 5">
   </div>
   <div class="grid-item">
-    <img src="public/img/insta/stiletter-2.webp" alt="Billede 7">
+    <img src="public/img/insta/nye/insta3.png" alt="Billede 7">
   </div>
   <div class="grid-item">
-    <img src="/public/img/insta/shorts-back1.webp" alt="Billede 8">
+    <img src="/public/img/insta/nye/insta4.png" alt="Billede 8">
   </div>
 </section>
 
   <style>
 
-    .section1 {
-      padding-top:200px;
+  
+.image-grid {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  gap:5px;
+
+
+}
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+  .section1 {
+      padding-top:50px;
+      margin:10px;
+    }
+
+    a {text-transform: uppercase;
+      color:var(--cta-text);
+   }
+@media screen and (min-width: 768px) {
+
+
+  .section1 {
+      padding-top:100px;
     }
 .image-grid {
   display: grid;
@@ -80,18 +105,5 @@ a:hover {
   padding-bottom: 20px;
   max-width: 1200px;
 }
-
-@media only screen and (max-width: 768px) {
-  .image-grid {
-    display: none;
-  }
-  .section1 {
-      padding-top:20px;
-    }
-
-  .instagram-section {
-    display: none;
-  }
 }
-
 </style>
