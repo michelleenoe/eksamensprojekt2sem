@@ -18,7 +18,7 @@ const data = await fetch(
   <div class="filter">
     <a class="filterbutton active" data-filter="all">All</a>
     <span class="separator">|</span>
-    <a class="filterbutton active" data-filter="top">Top</a>
+    <a class="filterbutton" data-filter="top">Top</a>
     <span class="separator">|</span>
     <a class="filterbutton" data-filter="bottom">Bottom</a>
     <span class="separator">|</span>
@@ -58,30 +58,41 @@ const data = await fetch(
         </article>
       ))
     }
-  </section> 
-</Mainlayout>
+  </section>
 
-<script>
-  const btns = document.querySelectorAll(".filterbutton");
-  btns.forEach((btn) => {
-    btn.addEventListener("click", () => filterBy(btn.dataset.filter));
-  });
-
-  function filterBy(cat) {
-    console.log(cat);
-    document.querySelectorAll("article.grid-item").forEach((art) => {
-      if (art.dataset.category === cat || cat === "all") {
-        //vises
-        art.classList.remove("hide");
-      } else {
-        //skjules
-        art.classList.add("hide");
-      }
+  <script>
+    const btns = document.querySelectorAll(".filterbutton");
+    btns.forEach((btn) => {
+      btn.addEventListener("click", () => filterBy(btn));
     });
-  }
-</script>
+
+    function filterBy(clickedBtn) {
+      // Fjern 'active' klassen fra alle knapper
+      btns.forEach((btn) => btn.classList.remove("active"));
+
+      // Tilføj 'active' klassen til den klikkede knap
+      clickedBtn.classList.add("active");
+
+      // Filtrer artikler baseret på det valgte filter
+      const cat = clickedBtn.dataset.filter;
+      document.querySelectorAll("article.grid-item").forEach((art) => {
+        if (art.dataset.category === cat || cat === "all") {
+          art.classList.remove("hide");
+        } else {
+          art.classList.add("hide");
+        }
+      });
+    }
+  </script>
+
 
 <style>
+
+.filterbutton.active {
+  color: var(--cta-text);
+  border-bottom: 1px solid var(--cta-text);
+}
+
   /* knap */
   button {
   color: #7a1c44;
@@ -162,7 +173,7 @@ button:hover p {
     scale: 100%;
   }
 
-  /* filter active () - skal implementeres i koden hvis det er need to*/
+
 
   .knap:hover {
     text-decoration: none;
