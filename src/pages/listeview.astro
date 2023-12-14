@@ -50,7 +50,7 @@ const data = await fetch(
             {item.price && item.price.toLowerCase() !== "soldout" && (
               <button type="button" name="btn">
                 <a class="knap" href={`/products/${item.slug}`}>
-                  <p>SHOP</p>
+                  <p> SHOP</p>
                 </a>
               </button>
             )}
@@ -84,23 +84,30 @@ const data = await fetch(
 <style>
   /* knap */
   button {
-    color: #ffffff;
-    background-color: var(--cta-text);
-    font-size: 16px;
-    border: none;
-    padding: 2px 50px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
+  color: #7a1c44;
+  font-size: 16px;
+  border: none;
+  padding: 2px 50px;
+  cursor: pointer;
+  margin-top: 10px;
+  background-color: transparent;
+  border: 1px solid #7a1c44;
+}
 
-  .btn p {
-    font-family: var(--font-family-roman);
-  }
-  button:hover {
-    color: var(--cta-text);
-    background-color: transparent;
-    border: 1px solid #7a1c44;
-  }
+button p {
+  font-family: var(--font-family-roman);
+  color: var(--cta-text);
+}
+
+button:hover {
+  background-color: #7a1c44;
+  color: white; 
+}
+
+button:hover p {
+  color: white;
+}
+
 
   /* id til javascript */
   .hide {
@@ -153,15 +160,12 @@ const data = await fetch(
     scale: 100%;
   }
 
-  .knap {
-    color: white;
-  }
   /* filter active () - skal implementeres i koden hvis det er need to*/
 
   .knap:hover {
-    color: var(--cta-text);
     text-decoration: none;
   }
+  
 
   /* styling på soldout - den ligger med en <p> rundt om som er span stylet i koden ^ */
 

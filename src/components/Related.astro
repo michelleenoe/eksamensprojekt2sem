@@ -43,32 +43,30 @@ const data = await fetch(
   .image-grid {
     grid-template-columns: 1fr;
   }
-  .knap {
-    color: var(--secondary-color);
-    text-decoration: none;
-  }
-  .knap:hover {
-    color: var(--cta-text);
-  }
   button {
-    color: #ffffff;
-    background-color: var(--cta-text);
-    font-size: 16px;
-    border: none;
-    padding: 2px 50px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
+  color: #7a1c44;
+  font-size: 16px;
+  border: none;
+  padding: 2px 50px;
+  cursor: pointer;
+  margin-top: 10px;
+  background-color: transparent;
+  border: 1px solid #7a1c44;
+}
 
-  .btn p {
-    font-family: var(--font-family-roman);
-  }
-  button:hover {
-    color: var(--cta-text);
-    background-color: transparent;
-    border: 1px solid #7a1c44;
-  }
+button p {
+  font-family: var(--font-family-roman);
+  color: var(--cta-text);
+}
 
+button:hover {
+  background-color: #7a1c44;
+  color: white; 
+}
+
+button:hover p {
+  color: white;
+}
   .grid-item {
     text-align: center;
   }

@@ -127,29 +127,36 @@ console.log("myData");
       font-weight: 100;
     }
 
-    button {
-      font-size: 18px;
-      color: var(--secondary-color);
-      background-color: var(--cta-text);
-      padding: 10px 110px;
-      border: none;
-      flex-direction: column;
-      cursor: pointer;
-      letter-spacing: 1px;
-    }
+ 
     .soldout {
       color:var(--cta-text);
       font-size: 20px;
 
     }
-    .button-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-      padding-bottom: 30px;
-    }
+    button {
+  font-size: 18px;
+  color: var(--cta-text);
+  background-color: transparent;
+  border: 2px solid var(--cta-text);
+  padding: 10px 110px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background-color 0.3s, color 0.3s;
+}
 
+button p {
+  color: var(--cta-text);
+}
 
+button:hover {
+  background-color: var(--cta-text);
+  color: white;
+  border: 2px solid transparent;
+}
+
+button:hover p {
+  color: white;
+}
 
     svg {
       display: block;
@@ -233,12 +240,6 @@ console.log("myData");
       scrollbar-width: thin;
       width: 100%; 
       flex: 1;
-    }
-    button:hover {
-      transition: 0.1s;
-      background-color: transparent;
-      color: var(--cta-text);
-      border: solid 2px var(--cta-text);
     }
     .btn-container{
       justify-content: start;
