@@ -50,7 +50,7 @@ const data = await fetch(
             {item.price && item.price.toLowerCase() !== "soldout" && (
               <button type="button" name="btn">
                 <a class="knap" href={`/products/${item.slug}`}>
-                  <p> SHOP</p>
+                  <p>KØB</p>
                 </a>
               </button>
             )}
@@ -92,6 +92,7 @@ const data = await fetch(
   margin-top: 10px;
   background-color: transparent;
   border: 1px solid #7a1c44;
+
 }
 
 button p {
@@ -102,6 +103,7 @@ button p {
 button:hover {
   background-color: #7a1c44;
   color: white; 
+  
 }
 
 button:hover p {
