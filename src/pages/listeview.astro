@@ -1,6 +1,7 @@
 ---
 import "/src/css/general.css";
 import Mainlayout from "../layouts/Mainlayout.astro";
+import Card from "../components/Card.astro";
 
 const data = await fetch(
   "https://uiovvvgmjftrkbiogyqx.supabase.co/rest/v1/products?order=brand_front.asc",
@@ -11,7 +12,7 @@ const data = await fetch(
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVpb3Z2dmdtamZ0cmtiaW9neXF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDExMTU1MzUsImV4cCI6MjAxNjY5MTUzNX0.K1gnnZYV5aWSc4jzhiX1H2-WIcr2JXnmrj1BylbJRf0",
     },
   }
-).then((res) => res.json());
+).then(res => res.json());
 ---
 
 <Mainlayout title="SHOP">
@@ -25,39 +26,12 @@ const data = await fetch(
     <a class="filterbutton" data-filter="accessories">Accessories</a>
   </div>
 
-  <section class="grid-container" id="articles-container">
-    {
-      data.map((item) => (
-        <article
-          class={`grid-item ${item.subsub_category}`}
-          data-category={item.subsub_category}
-        >
-          <a href={`/products/${item.slug}`}>
-            <img class="image" src={item.image} alt="Produktskud" />
-          </a>
-          <div class="item-info">
-            <a href={`/products/${item.slug}`}>
-              <h3 class="h3">{item.brand_front}</h3>
-            </a>
-            <h4 class="h4">{item.price} </h4>
-            {item.soldout_1 && (
-              <h4 class="soldout">
-                {item.soldout_1.toLowerCase() === "soldout"
-                  ? "Sold Out"
-                  : item.soldout_1}
-              </h4>
-            )}
-            {item.price && item.price.toLowerCase() !== "soldout" && (
-              <button type="button" name="btn">
-                <a class="knap" href={`/products/${item.slug}`}>
-                  <p>KØB</p>
-                </a>
-              </button>
-            )}
-          </div>
-        </article>
-      ))
-    }
+<!-- Card-komponent -->
+    <section class="grid-container" id="articles-container">
+      {data.map((item) => (
+        <Card data={item} key={item.id} />
+      ))}
+    </section>
   </section>
 
   <script>
