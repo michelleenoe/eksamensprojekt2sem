@@ -21,7 +21,7 @@ const data = await fetch(
       .map((item) => (
         <div class="grid-item" key={item.slug}>
           <a href={`/products/${item.slug}`}>
-            <img class="image" src={item.image} alt="Produktskud" />
+            <img class="image" src={item.image} alt={item.alttext}/>
           </a>
           <div class="item-info">
             <a href={`/products/${item.slug}`}>

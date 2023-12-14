@@ -40,7 +40,7 @@ console.log("myData");
       <div class="image-container">
         {myData.images.map((image, index) => (
           <div id={`image-${index + 1}`} key={index}>
-            <img src={image} alt="" />
+            <img src={image} alt={myData.alttext} />
           </div>
         ))}
       </div>
