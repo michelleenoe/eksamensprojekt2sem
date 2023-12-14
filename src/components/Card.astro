@@ -27,10 +27,7 @@ const {data}=Astro.props;
 
   <style>
 
-    .filterbutton.active {
-      color: var(--cta-text);
-      border-bottom: 1px solid var(--cta-text);
-    }
+ 
     
       /* knap */
       button {
@@ -82,18 +79,8 @@ const {data}=Astro.props;
         font-family: var(--font-family-roman);
       }
     
-      /* filter mobil */
-      .filter {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        text-decoration: none;
-        overflow: hidden;
-        margin: 5px 0;
-        display: flex;
-        justify-content: center;
-        cursor: pointer;
-      }
+      
+
     
       .grid-container {
         display: grid;
@@ -125,20 +112,9 @@ const {data}=Astro.props;
         color: var(--cta-text);
         font-family: var(--font-family-medium);
       }
-      .filterbutton:hover {
-        cursor: pointer;
-      }
+  
     
-      .filterbutton {
-        position: relative;
-        display: inline-block;
-        text-transform: uppercase;
-        text-decoration: none;
-        font-size: 13px;
-        overflow: hidden;
-        letter-spacing: 1.5px;
-        padding: 10px;
-      }
+     
     
       @media screen and (min-width: 767px) {
         .image {
@@ -146,21 +122,8 @@ const {data}=Astro.props;
           width: 80%;
           object-fit: cover;
         }
-        .grid-container {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          padding-bottom: 100px;
-          gap: 40px;
-          margin: 0 auto;
-          padding-left: 80px;
-          padding-right: 80px;
-          padding-top: 25px;
-        }
-        .filterbutton {
-          padding: 10px;
-          font-size: 15px;
-          margin: 5px 0;
-        }
+       
+       
         .item-info {
           margin-top: 20px;
         }
