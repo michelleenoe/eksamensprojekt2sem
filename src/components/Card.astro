@@ -3,7 +3,7 @@ const {data}=Astro.props;
 ---
 <article class={`grid-item ${data.subsub_category}`} data-category={data.subsub_category}>
     <a href={`/products/${data.slug}`}>
-      <img class="image" src={data.image}>
+      <img class="image" src={data.image} alt={data.alttext}>
     </a>
     <div class="item-info">
       <a href={`/products/${data.slug}`}>
