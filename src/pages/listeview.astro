@@ -49,7 +49,9 @@ const data = await fetch(
             )}
             {item.price && item.price.toLowerCase() !== "soldout" && (
               <button type="button" name="btn">
-                <p>SHOP</p>
+                <a class="knap" href={`/products/${item.slug}`}>
+                  <p>SHOP</p>
+                </a>
               </button>
             )}
           </div>
@@ -80,7 +82,6 @@ const data = await fetch(
 </script>
 
 <style>
-
   /* knap */
   button {
     color: #ffffff;
@@ -135,7 +136,6 @@ const data = await fetch(
     cursor: pointer;
   }
 
-
   .grid-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -149,14 +149,18 @@ const data = await fetch(
 
   .image {
     width: 100%;
-        height: auto;
-      scale: 100%;}
+    height: auto;
+    scale: 100%;
+  }
 
-
+  .knap {
+    color: white;
+  }
   /* filter active () - skal implementeres i koden hvis det er need to*/
 
-  .filterbutton:active {
+  .knap:hover {
     color: var(--cta-text);
+    text-decoration: none;
   }
 
   /* styling på soldout - den ligger med en <p> rundt om som er span stylet i koden ^ */
@@ -176,7 +180,7 @@ const data = await fetch(
     text-decoration: none;
     font-size: 13px;
     overflow: hidden;
-letter-spacing: 1.5px;
+    letter-spacing: 1.5px;
     padding: 10px;
   }
 
@@ -193,23 +197,17 @@ letter-spacing: 1.5px;
       gap: 40px;
       margin: 0 auto;
       padding-left: 80px;
-      padding-right:80px;
-      padding-top:25px;
+      padding-right: 80px;
+      padding-top: 25px;
     }
     .filterbutton {
       padding: 10px;
       font-size: 15px;
-      transition: 0.2s;
       margin: 5px 0;
     }
-.item-info{
-margin-top: 20px;
-}
-.filterbutton{
-  letter-spacing: 1.5px;
-}
-
-
+    .item-info {
+      margin-top: 20px;
+    }
 
   }
 </style>
