@@ -28,15 +28,46 @@ const data = await fetch(
               <h4>{item.brand_front}</h4>
             </a>
             <p>{item.price}</p>
+            <button className="btn" type ="button" name="btn" key={item.slug}>
+          <a class="knap" href={`/products/${item.slug}`}>
+         
+              <p>KØB</p>
+              </button>
+            </a>
           </div>
         </div>
       ))
-  }
+      }
 </section>
 
 <style>
   .image-grid {
     grid-template-columns: 1fr;
+  }
+  .knap {
+    color:var(--secondary-color);;
+    text-decoration: none;
+  }
+  .knap:hover {
+    color:var(--cta-text);
+  }
+  button {
+    color: #ffffff;
+    background-color: var(--cta-text);
+    font-size: 16px;
+    border: none;
+    padding: 2px 50px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  .btn p {
+    font-family: var(--font-family-roman);
+  }
+  button:hover {
+    color: var(--cta-text);
+    background-color: transparent;
+    border: 1px solid #7a1c44;
   }
 
   .grid-item {
@@ -58,7 +89,7 @@ const data = await fetch(
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 80px;
-      margin-bottom: 10rem;
+      padding-bottom: 10rem;
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -78,9 +109,8 @@ h3{
   padding-top: 5rem;
 }
     .image {
-      scale: 100%;
-      height: 100%;
-      width: 100%;
+      height: 650 px;
+      width: 350px;
     }
     .item-info{
       margin-top: 10px;
