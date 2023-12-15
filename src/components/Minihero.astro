@@ -8,9 +8,6 @@
   </div>
 
 </div>
-
-
-<!-- Flex -->
   <style>
     .container {
     display: grid;
@@ -57,25 +54,20 @@ a {
 
 .pic_1 {
   background-image: url(/public/frontpage/pic3.webp);
+  order: 2;
 }
 
 .pic_2 {
   background-image: url(/public/frontpage/pic2.webp);
+  order: 1;
 }
-.pic_1 {
-    order: 2;
-  }
-
-  .pic_2 {
-    order: 1;
-  }
-
 
 @media only screen and (min-width: 769px) {
   .container {
     grid-template-columns: 1.5fr 2fr;
     gap: 80px;
     max-width: 1200px;
+    gap: 20px;
   }
 
   .pic_1,
@@ -92,12 +84,6 @@ a {
   .pic_2 {
     order: 2;
   }
-
-
-  .container {
-
-  gap: 20px;
-}
 
 }
 </style>

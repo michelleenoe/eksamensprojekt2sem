@@ -26,9 +26,6 @@ const {data}=Astro.props;
   </article>
 
   <style>
-
- 
-    
       /* knap */
       button {
       color: #7a1c44;
@@ -40,48 +37,36 @@ const {data}=Astro.props;
       background-color: transparent;
       border: 1px solid #7a1c44;
     
-    }
-    
+      }
     button p {
       font-family: var(--font-family-roman);
       color: var(--cta-text);
-    }
-    
+      }
     button:hover {
       background-color: #7a1c44;
       color: white; 
       
-    }
-    
+      }
     button:hover p {
       color: white;
-    }
-    
-    
+      }
       /* id til javascript */
       .hide {
         display: none;
       }
-    
       /* tekst - brand, pris  */
       .item-info {
         padding: 10px;
         text-align: center;
         padding-bottom: 30px;
       }
-    
       .h4 {
         font-family: var(--font-family-roman);
         font-weight: 100 !important;
       }
-    
       .h3 {
         font-family: var(--font-family-roman);
       }
-    
-      
-
-    
       .grid-container {
         display: grid;
         grid-template-columns: 1fr;
@@ -92,30 +77,19 @@ const {data}=Astro.props;
         padding: 10px;
         background-color: var(--background-color);
       }
-    
       .image {
         width: 100%;
         height: auto;
         scale: 100%;
       }
-    
-    
-    
       .knap:hover {
         text-decoration: none;
       }
-      
-    
       /* styling på soldout - den ligger med en <p> rundt om som er span stylet i koden ^ */
-    
       .soldout {
         color: var(--cta-text);
         font-family: var(--font-family-medium);
       }
-  
-    
-     
-    
       @media screen and (min-width: 767px) {
         .image {
           height: 80%;

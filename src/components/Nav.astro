@@ -40,22 +40,21 @@
   </section>
 </body>
 <style>
-
-  .header, .grid-container {
+  .header,
+  .grid-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 100px;
     position: fixed;
-    width:100%;
-    top: 0; 
+    width: 100%;
+    top: 0;
     background-color: var(--background-color);
     z-index: 99;
-}
-  
-.cta-button a{
-  font-family: var(--font-family-light);
- 
+  }
+
+  .cta-button a {
+    font-family: var(--font-family-light);
   }
   .horizontal-navigation {
     flex-grow: 1;
@@ -68,13 +67,15 @@
   .nav-list {
     list-style-type: none;
     margin: 0;
-    padding:0 150px;
+    padding: 0 150px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
   }
-a {    font-size: 16px;}
+  a {
+    font-size: 16px;
+  }
   .nav-list li a:hover {
     color: var(--cta-text);
     text-decoration: underline;
@@ -87,21 +88,19 @@ a {    font-size: 16px;}
   }
 
   .logo {
-  align-items: center; 
-  display: block;
+    align-items: center;
+    display: block;
+  }
 
-
-}
-
-.logo img {
-  width: 400px;
-  max-width: 100%;
-  margin: 0 auto;
-}
+  .logo img {
+    width: 400px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
   .cta-button {
     color: white;
     font-size: 18px;
-     padding: 3px 25px; 
+    padding: 3px 25px;
     background: #7a1c44;
     text-decoration: none;
     transition: background-color 0.3s ease;
@@ -110,8 +109,7 @@ a {    font-size: 16px;}
     flex-direction: column;
     cursor: pointer;
     box-sizing: border-box;
-  } 
-
+  }
 
   .cta-button:hover {
     background: #9c1652;
@@ -135,33 +133,29 @@ a {    font-size: 16px;}
       top: 10px;
       right: 0;
       background-color: var(--background-color);
-      height:38vh;
+      height: 38vh;
     }
     .cta-button {
-    padding:0px;
-    line-height: 1.6;
-    font-size: 16px;
-
-  }
+      padding: 0px;
+      line-height: 1.6;
+      font-size: 16px;
+    }
 
     .nav-list.show {
       display: flex;
       width: 100%;
-      height:38vh;
+      height: 38vh;
       overflow: hidden;
-      height:auto;
+      height: auto;
       cursor: pointer;
-      top:70px;
-  
-
-
+      top: 70px;
     }
-    .nav-list li  {
-    text-decoration: none;
-    padding: 20px;
-    
-  }
-    .burger-icon, .cross-icon {
+    .nav-list li {
+      text-decoration: none;
+      padding: 20px;
+    }
+    .burger-icon,
+    .cross-icon {
       display: block;
       font-size: 40px;
       position: absolute;
@@ -176,6 +170,7 @@ a {    font-size: 16px;}
     .cross-icon {
       font-size: 50px;
       color: var(--cta-text);
+      display: none;
     }
 
     .burger-icon:hover {
@@ -187,10 +182,6 @@ a {    font-size: 16px;}
     }
     .cta-button a {
       color: var(--cta-text) !important;
-    }
-
-    .cross-icon {
-      display: none;
     }
 
     .burger-icon.show {
@@ -207,7 +198,6 @@ a {    font-size: 16px;}
     .grid-container {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-
     }
     .logo1 {
       grid-column: 1;
@@ -225,7 +215,7 @@ a {    font-size: 16px;}
       align-items: center;
       position: relative;
       top: 10%;
-      left:50%;
+      left: 50%;
     }
     .burger-container {
       grid-column: 3;
@@ -234,8 +224,6 @@ a {    font-size: 16px;}
       align-items: center;
     }
   }
-  
-  
 
   @media only screen and (min-width: 769px) {
     .burger-icon,
