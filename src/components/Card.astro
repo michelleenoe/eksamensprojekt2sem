@@ -3,24 +3,26 @@ const {data}=Astro.props;
 ---
 
 <article class={`grid-item ${data.subsub_category}`} data-category={data.subsub_category}>
-    
+  
      <!-- Billede fra databasen + alttext -->
   <a href={`/products/${data.slug}`}>
       <img class="image" src={data.image} alt={data.alttext}>
     </a>
-
     <div class="item-info">
       <a href={`/products/${data.slug}`}>
+        <!-- brand_front = navn på produkt i listeview ''overskrift''' -->
         <h3 class="h3">{data.brand_front} </h3>
       </a>
+      <!-- price = pris på produkt -->
       <h4 class="h4">{data.price} </h4>
       {data.soldout_1 && (
         <h4 class="soldout">
           {data.soldout_1.toLowerCase() === "soldout" ? "Sold Out" : data.soldout_1}
         </h4>
       )}
+      <!-- // linket til produktet med en dynamisk slug. Viser "SHOP" hvis prisen ikke er markeret som "soldout". -->
       {data.price && data.price.toLowerCase() !== "soldout" && (
-        // linket til produktet med en dynamisk slug. Viser "SHOP" hvis prisen ikke er markeret som "soldout".
+          // knap der linker til det gældende produkt 
         <button type="button" name="btn">
           <a class="knap" href={`/products/${data.slug}`}>
             <p>SHOP</p>
