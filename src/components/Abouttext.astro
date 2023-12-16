@@ -1,7 +1,11 @@
 <section>
+
+  <!-- Første og andet teksttykke inden billederne  -->
   <div class="container">
     <div class="intro">
       <h2 class="h2">OM OS</h2>
+
+      <!-- introduktion til butikken -->
       <p>
         First Class Second Hand er en secondhand butik beliggende i København med
         fokus på kvalitet, stil og unikke detaljer. Vi har et enkelt og unikt
@@ -20,9 +24,12 @@
       </p>
     </div>
   </div>
+
+        <!-- De tre steps  -->
   <div class="grid1-1">
     <div class="image-container">
   
+
       <img src="/img/about/01.jpg" alt="Foto af First Class Second Hand butik" />
     </div>
     <div class="textbox">
@@ -64,9 +71,11 @@
   </div>
 </section>
 <style>
+  
+  /* Styling på hele siden */
   section {
-  padding-left:10px;
-  padding-right: 10px;
+    padding-left:10px;
+    padding-right: 10px;
     display: grid;
     text-align: left;
     padding-bottom: 6rem;
@@ -74,10 +83,13 @@
     line-height: 1.6;
     margin:0 auto;
   }
-.grid1-1 {
+
+/* Grid til indledende tekst*/
+  .grid1-1 {
   padding:0px;
 
   }  
+   /* Generel styling af tekstindhold */
   p {
     margin-bottom: 15px;
     line-height: 1.5;
@@ -101,6 +113,9 @@
     text-align: left;
   padding-left:20px;
   }
+
+
+     /* Generel styling af links */
   a {
     text-decoration: underline;
   }
@@ -111,6 +126,8 @@
     font-family:var(--font-family-medium);
 
   }
+
+      /* Generel styling af billeder */
   img {
   height: 600px;
   width: 350px;
@@ -121,6 +138,8 @@
   .container {
     margin: 0 auto;
   }
+
+   /* Ændringer i styling for større skærme */
   @media only screen and (min-width: 769px) {
     .grid1-1 {
       padding-top:105px;

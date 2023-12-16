@@ -3,6 +3,7 @@ import Mainlayout from "../../layouts/Mainlayout.astro";
 import Insta from "../../components/Insta.astro";
 import Related from "../../components/Related.astro";
 
+// funktion til at generere statiske stier og props baseret på API
 export async function getStaticPaths() {
   const data = await fetch(
     "https://uiovvvgmjftrkbiogyqx.supabase.co/rest/v1/products",
@@ -25,6 +26,7 @@ export async function getStaticPaths() {
   });
 }
 const { myData } = Astro.props;
+// Metadata til SEO
 const metadesc =
   "Eksklusivt vintagefund! Bæredygtigt secondhand tøj til salg. Unikke sæsonvarer – Køb nu!";
 const title = myData.brand;
@@ -76,6 +78,7 @@ const title = myData.brand;
           }
 
           {
+              // Vis kun knappen, hvis produktet ikke er udsolgt
             myData.price && myData.price.toLowerCase() !== "soldout" && (
               <button className="btn" type="button" name="btn">
                 <p>SHOP</p>

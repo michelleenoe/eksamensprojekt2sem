@@ -1,13 +1,17 @@
 ---
 const {data}=Astro.props; 
 ---
+
 <article class={`grid-item ${data.subsub_category}`} data-category={data.subsub_category}>
-    <a href={`/products/${data.slug}`}>
+    
+     <!-- Billede fra databasen + alttext -->
+  <a href={`/products/${data.slug}`}>
       <img class="image" src={data.image} alt={data.alttext}>
     </a>
+
     <div class="item-info">
       <a href={`/products/${data.slug}`}>
-        <h3 class="h3">{data.brand_front}</h3>
+        <h3 class="h3">{data.brand_front} </h3>
       </a>
       <h4 class="h4">{data.price} </h4>
       {data.soldout_1 && (
@@ -16,6 +20,7 @@ const {data}=Astro.props;
         </h4>
       )}
       {data.price && data.price.toLowerCase() !== "soldout" && (
+        // linket til produktet med en dynamisk slug. Viser "SHOP" hvis prisen ikke er markeret som "soldout".
         <button type="button" name="btn">
           <a class="knap" href={`/products/${data.slug}`}>
             <p>SHOP</p>
@@ -60,10 +65,12 @@ const {data}=Astro.props;
         text-align: center;
         padding-bottom: 30px;
       }
+      /* stil for prisen */
       .h4 {
         font-family: var(--font-family-roman);
         font-weight: 100 !important;
       }
+     /* stil for mærket */
       .h3 {
         font-family: var(--font-family-roman);
       }
@@ -77,6 +84,8 @@ const {data}=Astro.props;
         padding: 10px;
         background-color: var(--background-color);
       }
+
+      /* styling for billeder */
       .image {
         width: 100%;
         height: auto;
@@ -91,13 +100,14 @@ const {data}=Astro.props;
         font-family: var(--font-family-medium);
       }
       @media screen and (min-width: 767px) {
+        /* billedestørrelse stor skærm */
         .image {
           height: 80%;
           width: 80%;
           object-fit: cover;
         }
        
-       
+       /* produktinformation i desktop */
         .item-info {
           margin-top: 20px;
         }
