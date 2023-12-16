@@ -36,11 +36,15 @@ const metadesc = "Opdag unikt vintage tøj – Køb og sælg secondhand online! 
     </section>
 
   <script>
+    // Vælg alle elementer med klassen "filterbutton"
     const btns = document.querySelectorAll(".filterbutton");
     btns.forEach((btn) => {
+      // Tilføj en eventslistener til hver knap og kald filterBy-funktionen
       btn.addEventListener("click", () => filterBy(btn));
     });
 
+      // Funktion til at filtrere og vise/skjule artikler baseret på det valgte filter
+      
     function filterBy(clickedBtn) {
       // Fjern 'active' klassen fra alle knapper
       btns.forEach((btn) => btn.classList.remove("active"));
